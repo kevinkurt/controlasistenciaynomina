@@ -16,11 +16,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Nómina
+        Nómina / Liquidar Nomina
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li class="active">Nómina</li>
+        <li><a href="submenuNomina.php"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li>Nomina</li>
+        <li class="active">Liquidar Nomina</li>
       </ol>
     </section>
     <!-- Main content -->
@@ -53,14 +54,18 @@
             <div class="box-header with-border">
               <div class="pull-right">
                 <form method="POST" class="form-inline" id="payForm">
+                      <br>
+                        Ingrese numero de documento:<br>
+                        <Input type = "text" name = "MyTextBox">
                   <div class="input-group">
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </div>
                     <input type="text" class="form-control pull-right col-sm-8" id="reservation" name="date_range" value="<?php echo (isset($_GET['range'])) ? $_GET['range'] : $range_from.' - '.$range_to; ?>">
                   </div>
-                  <button type="button" class="btn btn-success btn-sm btn-flat" id="payroll"><span class="glyphicon glyphicon-print"></span> Nómina de Sueldo</button>
-                  <button type="button" class="btn btn-primary btn-sm btn-flat" id="payslip"><span class="glyphicon glyphicon-print"></span> Recibo de Sueldo</button>
+                  <button type="button" class="btn btn-success btn-sm btn-flat" id="payroll"><span class="glyphicon glyphicon-print"></span> Liquidar empleado</button>
+                  <button type="button" class="btn btn-success btn-sm btn-flat" id="payroll"><span class="glyphicon glyphicon-print"></span> Liquidar empleados</button>
+                  <button type="button" class="btn btn-primary btn-sm btn-flat" id="payslip"><span class="glyphicon glyphicon-print"></span> Desprendible de pago</button>
                 </form>
               </div>
             </div>
