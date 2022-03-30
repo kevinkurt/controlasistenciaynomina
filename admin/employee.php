@@ -11,12 +11,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Lista de Empleados
+      Nomina / Modificacion Nomina
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li>Empleados</li>
-        <li class="active">Lista de Empleados</li>
+        <li><a href="SubmenuNomina.php"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li>Nomina</li>
+        <li class="active">Modificacion Nomina</li>
       </ol>
     </section>
     <!-- Main content -->
