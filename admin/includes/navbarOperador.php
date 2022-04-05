@@ -14,6 +14,13 @@
       <span class="sr-only">Toggle navigation</span>
     </a>
 
+    <div>
+
+      <div style="position:absolute; top: 11px;; left:600px;color:white; font-size: medium">
+      <strong>Operario</strong>  </div>
+    </div>
+
+
     <div class="navbar-custom-menu">
 
       <ul class="nav navbar-nav">
