@@ -5,13 +5,11 @@
       <div class="user-panel"></div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">REPORTES</li>
-        <li class=""><a href="home.php"><i class="fa fa-dashboard"></i> <span>Panel de Control</span></a></li>
         <li class="header">GESTION</li>
         
         <li><a href="attendance.php"><i class="fa fa-calendar"></i> <span>Asistencia</span></a></li>
         <li class="treeview">
-        <li><a href="subMenuNomina.php"><i class="fa fa-calendar"></i> <span>Nomina</span></a></li>
+        <li><a href="subMenuNomina.php"><i class="fa fa-book"></i> <span>Nomina</span></a></li>
         <li class="treeview">
         <li><a href="submenuVentas.php"><i class="fa fa-calendar"></i> <span>Ventas</span></a></li>
         <li class="treeview">
@@ -34,7 +32,7 @@
         <li><a href="deduction.php"><i class="fa fa-file-text"></i> Deducciones</a></li>
         <li><a href="position.php"><i class="fa fa-suitcase"></i> Cargos</a></li>
         <li class="header">IMPRIMIBLES</li>
-        <li><a href="payroll.php"><i class="fa fa-files-o"></i> <span>Nómina</span></a></li>
+        <li><a href="payroll.php"><i class="fa fa-files-o"></i> <span>Certificados</span></a></li>
         <li><a href="schedule_employee.php"><i class="fa fa-clock-o"></i> <span>Horarios</span></a></li>
       </ul>
     </section>

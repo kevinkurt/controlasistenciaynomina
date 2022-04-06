@@ -11,12 +11,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Lista de Empleados
+      Nomina / Modificacion Nomina
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li>Empleados</li>
-        <li class="active">Lista de Empleados</li>
+        <li><a href="SubmenuNomina.php"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li>Nomina</li>
+        <li class="active">Modificacion Nomina</li>
       </ol>
     </section>
     <!-- Main content -->
@@ -54,21 +54,20 @@
                 <thead>
                   <th>ID Empleado</th>
                   <th>Nombre</th>
-                  <th>Posición</th>
-                  <th>Horarios</th>
-                  <th>Miembro Desde</th>
+                  <th>Cargo</th>
+                  <th>Horario</th>
+                  <th>Fecha inicio contrato</th>
                   <th>Acción</th>
                 </thead>
                 <tbody>
                   <?php
-                     $sql = "SELECT *, empleado.id_empleado AS empid FROM empleado LEFT JOIN cargos ON cargos.id_cargo=empleado.id_cargo LEFT JOIN horario ON horario.id_horario=empleado.id_horario";
+                    $sql = "SELECT *, empleado.id AS empid FROM empleado LEFT JOIN cargos ON cargos.id_cargo=empleado.id_cargo LEFT JOIN horario ON horario.id_horario=empleado.id_horario";
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       ?>
                         <tr>
                           <td><?php echo $row['id_empleado']; ?></td>
                           <td><?php echo $row['nombres'].' '.$row['apellidos']; ?></td>
-                          <td><?php echo $row['descripcion']; ?></td>
                           <td><?php echo date('h:i A', strtotime($row['Hora_ingreso'])).' - '.date('h:i A', strtotime($row['Hora_salida'])); ?></td>
                           <td><?php echo date('M d, Y', strtotime($row['fecha_creacion'])) ?></td>
                           <td>
@@ -89,7 +88,7 @@
   </div>
     
   <?php include 'includes/footer.php'; ?>
-  <?php include 'includes/employee_modal.php'; ?>
+  <?php include 'includes/Modulo_edicion_empleado.php'; ?>
 </div>
 <?php include 'includes/scripts.php'; ?>
 <script>
@@ -107,27 +106,28 @@ $(function(){
     var id = $(this).data('id');
     getRow(id);
   });
+
 });
 
 function getRow(id){
   $.ajax({
     type: 'POST',
-    url: 'employee_row.php',
+    url: 'empleado_fila.php',
     data: {id:id},
     dataType: 'json',
     success: function(response){
       $('.empid').val(response.empid);
-      $('.employee_id').html(response.employee_id);
-      $('.del_employee_name').html(response.firstname+' '+response.lastname);
-      $('#employee_name').html(response.firstname+' '+response.lastname);
-      $('#edit_firstname').val(response.firstname);
-      $('#edit_lastname').val(response.lastname);
-      $('#edit_address').val(response.address);
-      $('#datepicker_edit').val(response.birthdate);
-      $('#edit_contact').val(response.contact_info);
-      $('#gender_val').val(response.gender).html(response.gender);
-      $('#position_val').val(response.position_id).html(response.description);
-      $('#schedule_val').val(response.schedule_id).html(response.time_in+' - '+response.time_out);
+      $('.id_empleado').html(response.id_empleado);
+      $('.Nombre_completo_empleado').html(response.nombres+' '+response.apellidos);
+      $('#nombre_empleado').html(response.nombres+' '+response.apellidos);
+      $('#editar_nombre').val(response.nombres);
+      $('#editar_apellido').val(response.apellidos);
+      $('#editar_direccion').val(response.direccion);
+      $('#editar_formato_fechas').val(response.fecha_nacto);
+      $('#editar_contacto').val(response.info_contacto);
+      $('#validar_genero').val(response.genero).html(response.genero);
+      $('#validar_cargo').val(response.id_cargo).html(response.id_cargo);
+      $('#validar_horario').val(response.id_horario).html(response.Hora_ingreso+' - '+response.Hora_salida);
     }
   });
 }

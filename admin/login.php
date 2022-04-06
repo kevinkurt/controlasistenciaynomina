@@ -3,14 +3,14 @@
 	include 'includes/conn.php';
 
 	if(isset($_POST['login'])){
-		$username = $_POST['username'];
+		$usuario = $_POST['usuario'];
 		$password = $_POST['password'];
 
-		$sql = "SELECT * FROM admin WHERE username = '$username'";
+		$sql = "SELECT * FROM administrador WHERE usuario = '$usuario'";
 		$query = $conn->query($sql);
 
 		if($query->num_rows < 1){
-			$_SESSION['error'] = 'Cannot find account with the username';
+			$_SESSION['error'] = 'Cannot find account with the usuario';
 		}
 		else{
 			$row = $query->fetch_assoc();

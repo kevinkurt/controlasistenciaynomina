@@ -7,8 +7,8 @@
 <?php include 'includes/header.php'; ?>
 <body class="hold-transition login-page">
 <div class="login-box">
-  	<div class="login-logo">
-  		<b>Ingreso Administrador</b>
+  	<div class="login-logo"> 
+  		<b>Ingreso Usuarios</b>
   	</div>
   
   	<div class="login-box-body">
@@ -16,11 +16,11 @@
 
     	<form action="login.php" method="POST">
       		<div class="form-group has-feedback">
-        		<input type="text" class="form-control" name="username" placeholder="input Username" required autofocus>
+        		<input type="text" class="form-control" name="usuario" placeholder="ingresar usuario" required autofocus>
         		<span class="glyphicon glyphicon-user form-control-feedback"></span>
       		</div>
           <div class="form-group has-feedback">
-            <input type="password" class="form-control" name="password" placeholder="input Password" required>
+            <input type="password" class="form-control" name="password" placeholder="ingresar contraseña" required>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
       		<div class="row">
