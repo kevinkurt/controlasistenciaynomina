@@ -3,7 +3,7 @@
 
 	if(isset($_POST['id'])){
 		$id = $_POST['id'];
-		$sql = "SELECT *, employees.id as empid FROM employees LEFT JOIN position ON position.id=employees.position_id LEFT JOIN schedules ON schedules.id=employees.schedule_id WHERE employees.id = '$id'";
+		$sql = "SELECT *, empleado.id as empid FROM empleado LEFT JOIN cargos ON cargos.id_cargo=empleado.id_cargo LEFT JOIN horario ON horario.id_horario=empleado.id_horario WHERE empleado.id = '$id'";
 		$query = $conn->query($sql);
 		$row = $query->fetch_assoc();
 

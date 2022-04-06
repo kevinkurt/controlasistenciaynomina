@@ -1,6 +1,6 @@
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>By <a href="https://www.configuroweb.com/">NominApp</a></b>
+      <b>By <a>NominApp</a></b>
     </div>
-    <strong>Copyright &copy; 2020 Control de Asistencia y Sistema de Nómina </strong>
+    <strong>Sistema de Control de Nómina, ventas e inventarios  </strong>
 </footer>

@@ -35,9 +35,9 @@
               <p>Modificacion Nomina</p>
             </div>
             <div class="icon">
-              <i class="ion ion-person-stalker"></i>
+              <i class="ion ion-person-stalker"></i> 
             </div>
-            <a href="employee.php" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="empleado.php" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

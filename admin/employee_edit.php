@@ -2,17 +2,17 @@
 	include 'includes/session.php';
 
 	if(isset($_POST['edit'])){
-		$empid = $_POST['id'];
-		$firstname = $_POST['firstname'];
-		$lastname = $_POST['lastname'];
-		$address = $_POST['address'];
-		$birthdate = $_POST['birthdate'];
-		$contact = $_POST['contact'];
-		$gender = $_POST['gender'];
-		$position = $_POST['position'];
-		$schedule = $_POST['schedule'];
+		$empid = $_POST['id_empleado'];
+		$firstname = $_POST['nombres'];
+		$lastname = $_POST['apellidos'];
+		$address = $_POST['direccion'];
+		$birthdate = $_POST['fecha_nacto'];
+		$contact = $_POST['info_contacto'];
+		$gender = $_POST['genero'];
+		$position = $_POST['id_cargo'];
+		$schedule = $_POST['id_horario'];
 		
-		$sql = "UPDATE employees SET firstname = '$firstname', lastname = '$lastname', address = '$address', birthdate = '$birthdate', contact_info = '$contact', gender = '$gender', position_id = '$position', schedule_id = '$schedule' WHERE id = '$empid'";
+		$sql = "UPDATE empleado SET nombres = '$firstname', apellidos = '$lastname', direccion = '$address', fecha_nacto = '$birthdate', info_contacto = '$contact', genero = '$gender', id_cargo = '$position', id_horario = '$schedule' WHERE id_empleado = '$empid'";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Empleado actualizado con éxito';
 		}

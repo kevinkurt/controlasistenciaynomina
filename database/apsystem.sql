@@ -26,96 +26,98 @@ SET time_zone = "+00:00";
 
 --
 
-/*-- tabla de usuarios administradores 
-CREATE TABLE super_administrador (id int(11) NOT NULL,
-  usuario varchar(30) NOT NULL,
-  password varchar(60) NOT NULL,
-  tipo varchar(60) NOT NULL,
-  fecha_creacion date NOT NULL
+-- tabla de usuarios administradores 
+CREATE TABLE `super_administrador` (`id` int(11) NOT NULL,
+  `usuario` varchar(30) NOT NULL,
+  `password` varchar(60) NOT NULL,
+  `tipo` varchar(60) NOT NULL,
+  `fecha_creacion` date NOT NULL
 ) ENGINE=InnoDB -- motor que va a usar la BD
 DEFAULT CHARSET=latin1 -- caracteres que va a usar
 ;
-INSERT INTO super_administrador (id,  usuario, password,tipo, fecha_creacion) VALUES
- (1, 'Administrador1', 'Proyecto1+', 'Administrador', sysdate()),
- (2, 'Administrador2', 'Proyecto2+', 'Administrador', sysdate()),
- (3, 'Administrador3', 'Proyecto3+', 'Administrador',sysdate());
+INSERT INTO `super_administrador` (`id`,  `usuario`, `password`,`tipo`, `fecha_creacion`) VALUES
+ (1, 'Administrador1', '$2y$10$M.1mhBtqOSy2wvqZh4VC1.77jGL.GsPS9Ou59iTrOOYidrol0QrVe', 'Administrador', sysdate()),
+ (2, 'Administrador2', '$2y$10$cbc.C2jUOR/cTMukgd67TODSzd08F/JTUzj9utG25dSl6aaQ3rYha', 'Administrador', sysdate()),
+ (3, 'Administrador3', '$2y$10$0OMeUU9YmyXzXQQ4G53/KuHqz/Y1gnTubXe1n0h4SeTfX8vRRiE8m', 'Administrador',sysdate());
 
 
 -- usuarios adiminstrador y empleados
-CREATE TABLE administrador (id int(11) NOT NULL,
-  id_empleado int(15) NOT NULL,
-  usuario varchar(30) NOT NULL,
-  password varchar(60) NOT NULL,
-  tipo varchar(60) NOT NULL,
-  fecha_creacion date NOT NULL
+CREATE TABLE `administrador` (`id` int(11) NOT NULL,
+  `id_empleado` int(15) NOT NULL,
+  `usuario` varchar(30) NOT NULL,
+  `password` varchar(60) NOT NULL,
+  `tipo` varchar(60) NOT NULL,
+  `fecha_creacion` date NOT NULL
 ) ENGINE=InnoDB -- motor que va a usar la BD
 DEFAULT CHARSET=latin1 -- caracteres que va a usar
 ;
-INSERT INTO administrador (id, id_empleado, usuario, password,tipo, fecha_creacion) VALUES
-(1, 11,'Cliente_Admin1', 'Ferre1+', 'Cliente', sysdate()),
-(2, 33,'Operario1', 'Operacion1*', 'Cliente', sysdate()),
-(3, 55, 'Operario2', 'Operacion2+', 'Cliente', sysdate());
+INSERT INTO `administrador` (`id`, `id_empleado`, `usuario`, `password`,`tipo`, `fecha_creacion`) VALUES
+(1, 11,'Cliente_Admin1', '$2y$10$ixCXndUoG43O4S7EYnMzzOpWRkpiDBuHzGgMcotMeaXazgKQSBVcO', 'Cliente', sysdate()),
+(2, 33,'Operario1', '$2y$10$SjJRldn6l6izGU/l74JH5Ojqc6e9MUpBBAYli3K9mK.nJJ7eGl9fu', 'Cliente', sysdate()),
+(3, 55, 'Operario2', '$2y$10$iP9kOafweUyq0nPFzssvvOK/sn0K0pkKmD0K995c764Lx/p3uFog.', 'Cliente', sysdate());
 -
 --tipo de cargos 
-CREATE TABLE cargos (
-  id_cargo int(11) NOT NULL,
-  descripcion varchar(150) NOT NULL,
-  Sueldo double NOT NULL
+CREATE TABLE `cargos` (
+  `id_cargo` int(11) NOT NULL,
+  `descripcion` varchar(150) NOT NULL,
+  `Sueldo` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
  
  
-INSERT INTO cargos (id_cargo, descripcion, Sueldo) VALUES
+INSERT INTO `cargos` (`id_cargo`, `descripcion`, `Sueldo`) VALUES
 (1, 'Administrador', 3000000),
 (2, 'Operario', 1500000),
 (3, 'Mensajero' , 1200000);
 
 -- Estructura de tabla para la tabla horario
  
-CREATE TABLE horario (
-  id_horario int(11) NOT NULL,
-  Hora_ingreso time NOT NULL,
-  Hora_salida time NOT NULL
+CREATE TABLE `horario` (
+  `id_horario` int(11) NOT NULL,
+  `Hora_ingreso` time NOT NULL,
+  `Hora_salida` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
  
  
-INSERT INTO horario (id_horario, Hora_ingreso, Hora_salida) VALUES
+INSERT INTO `horario` (`id_horario`, `Hora_ingreso`, `Hora_salida`) VALUES
 (1, '07:00:00', '16:00:00'),
 (2, '08:00:00', '17:00:00'),
 (3,' 09:00:00', '18:00:00'),
 (4, '10:00:00', '19:00:00');
+
+
 -- Estructura de tabla para la tabla empleado
 --
  
-CREATE TABLE empleado (
-  id int(15) NOT NULL,
-  id_empleado int(15) NOT NULL,
-  tipo_doc int(15) NOT NULL,
-  nombres varchar(50) NOT NULL,
-  apellidos varchar(50) NOT NULL,
-  direccion text NOT NULL,
-  fecha_nacto date NOT NULL,
-  info_contacto varchar(100) NOT NULL,
-  genero varchar(10) NOT NULL,
-  id_cargo int(11) NOT NULL,
-  id_horario int(11) NOT NULL,
-  fecha_creacion date NOT NULL
+CREATE TABLE `empleado` (
+  `id` int(15) NOT NULL,
+  `id_empleado` int(15) NOT NULL,
+  `tipo_doc` varchar(50) NOT NULL,
+  `nombres` varchar(50) NOT NULL,
+  `apellidos` varchar(50) NOT NULL,
+  `direccion` text NOT NULL,
+  `fecha_nacto` date NOT NULL,
+  `info_contacto` varchar(100) NOT NULL,
+  `genero` varchar(10) NOT NULL,
+  `id_cargo` int(11) NOT NULL,
+  `id_horario` int(11) NOT NULL,
+  `fecha_creacion` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
  
 -------------------------------------------------------  Aca validar que es cada campo
 -- Volcado de datos para la tabla employees
 -- incluir tipo y numero de doc
  
-INSERT INTO empleado (id_empleado, nombres, apellidos, direccion, fecha_nacto, info_contacto, genero, id_cargo, id_horario, fecha_creacion) VALUES
-(1, 11, 'Winder Alexander','Reyes Suarez' , 'Calle 54 N° 12-23', '1989-07-12','Sandra Suarez - 3008217777' , 'Masculino', 1, 1 , sysdate()),
-(2, 22, 'Dayana Carolina','Campos Diaz' , 'Carrera 21 N° 22-33', '1987-09-21','Camilo Jimenez - 9075621' , 'Femenino', 1, 4 ,sysdate()),
-(3, 33,  'Raul Ernesto', 'Perez Gomez', 'Av 15 12-72', '1979-06-01', 'Ernesto Perez - 3058879233', 'Masculino', 2, 2, sysdate()),
-(4, 44,  'Tatiana Carolina', 'Rodriguez Bayona', 'Tv 98a 15a-77', '1981-02-21', 'Ana Martinez - 3112089976', 'Femenino', 2, 3, sysdate()),
-(5, 55,  'Pedro Antonio', 'Sosa Pardo', 'Dg 21a 48-98', '1986-12-11', 'Luis Diaz - 3228776690', 'Masculino', 3, 4, sysdate());
+INSERT INTO `empleado` (`id`, `id_empleado`,`tipo_doc`, `nombres`, `apellidos`, `direccion`, `fecha_nacto`, `info_contacto`, `genero`, `id_cargo`, `id_horario`, `fecha_creacion`) VALUES
+(1, 11,'cedula ciudadania', 'Winder Alexander','Reyes Suarez' , 'Calle 54 N° 12-23', '1989-07-12','Sandra Suarez - 3008217777' , 'Masculino', 1, 1 , sysdate()),
+(2, 22,'cedula extranjeria','Dayana Carolina','Campos Diaz' , 'Carrera 21 N° 22-33', '1987-09-21','Camilo Jimenez - 9075621' , 'Femenino', 1, 4 ,sysdate()),
+(3, 33,'cedula ciudadania', 'Raul Ernesto', 'Perez Gomez', 'Av 15 12-72', '1979-06-01', 'Ernesto Perez - 3058879233', 'Masculino', 2, 2, sysdate()),
+(4, 44,'cedula ciudadania',  'Tatiana Carolina', 'Rodriguez Bayona', 'Tv 98a 15a-77', '1981-02-21', 'Ana Martinez - 3112089976', 'Femenino', 2, 3, sysdate()),
+(5, 55,'cedula extranjeria', 'Pedro Antonio', 'Sosa Pardo', 'Dg 21a 48-98', '1986-12-11', 'Luis Diaz - 3228776690', 'Masculino', 3, 4, sysdate());
 -- Estructura de tabla para la tabla gerente y empleados
 --
 
  
- -- Estructura de tabla para la tabla logueo
+ /*-- Estructura de tabla para la tabla logueo
 --
  
 CREATE TABLE logueo (
