@@ -11,8 +11,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Ventas
+        Inventario/Inventario por terminar
       </h1>
+      <ol class="breadcrumb">
+        <li><a href="SubMenuInventario.php"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li>Inventario</li>
+        <li>Inventario por terminar</li>
+      </ol>
     </section>
 
     <!-- Main content -->
@@ -21,23 +26,11 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Informe de reporte de ventas</h3>
-              <div class="box-tools pull-right">
+              <h3 class="box-title">Informe de productos por terminar</h3>
+              <div class="box-tools pull-right">                
                 <form class="form-inline">
                   <div class="form-group">
-                    <label>Reporte ventas: </label>
-                    <select class="form-control input-sm" id="select_year">
-                    <option value="0">Seleccionar</option>
-                        <option value="Dia">Dia</option>
-                        <option value="Mes">Mes</option>
-                        <option value="Año">Año</option>
-                    </select>
-                  </div>
-                </form>
-                
-                <form class="form-inline">
-                  <div class="form-group">
-                  <button type="submit" class="btn btn-primary btn-flat" name="add"><i class="glyphicon glyphicon-print"></i> Descarga informe de ventas </button>  
+                  <button type="submit" class="btn btn-primary btn-flat" name="add"><i class="glyphicon glyphicon-print"></i> Descarga informe de productos </button>  
                 </div>
                 </form>
               </div>

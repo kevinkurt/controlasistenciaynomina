@@ -37,7 +37,7 @@
             <div class="icon">
               <i class="ion ion-alert-circled"></i>
             </div>
-            <a href="employee.php" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="inventario_por_terminar.php" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
          </div>
         </div>
         <!-- ./col -->
@@ -50,7 +50,7 @@
             <div class="icon">
               <i class="fa fa-bookmark-o"></i>
             </div>
-            <a href="payroll.php" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="invetario_productos.php" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">

@@ -10,11 +10,11 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        Lista de Empleados
+    <h1>
+      Nomina / Modificacion Nomina/agregar
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="submenuNomina.php"><i class="fa fa-dashboard"></i> Inicio</a></li>
         <li>Empleados</li>
         <li class="active">Lista de Empleados</li>
       </ol>
@@ -97,7 +97,7 @@ $(function(){
   $('.edit').click(function(e){
     e.preventDefault();
     $('#edit').modal('show');
-    var id = $(this).data('id');
+    var id = $(this).data('id_empleado');
     getRow(id);
   });
 
@@ -118,6 +118,7 @@ function getRow(id){
     success: function(response){
       $('.empid').val(response.empid);
       $('.employee_id').html(response.employee_id);
+      $('.tipo_doc').html(response.tipo_doc);
       $('.del_employee_name').html(response.firstname+' '+response.lastname);
       $('#employee_name').html(response.firstname+' '+response.lastname);
       $('#edit_firstname').val(response.firstname);

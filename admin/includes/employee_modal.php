@@ -1,3 +1,9 @@
+<?php
+  include '../timezone.php';
+  $range_to = date('m/d/Y');
+  $range_from = date('m/d/Y', strtotime('-30 day', strtotime($range_to)));
+?>
+
 <!-- Add -->
 <div class="modal fade" id="addnew">
     <div class="modal-dialog">
@@ -9,6 +15,16 @@
           	</div>
           	<div class="modal-body">
             	<form class="form-horizontal" method="POST" action="employee_add.php" enctype="multipart/form-data">
+              <div class="form-group">
+                    <label for="gender" class="col-sm-3 control-label">Tipo documento</label>
+                    <div class="col-sm-9"> 
+                      <select class="form-control" id="tipo_doc" name="tipo_doc" required>
+                        <option value="" selected>- Seleccionar -</option>
+                        <option value="cedula ciudadania">CC</option>
+                        <option value="cedula extranjeria">CE</option>
+                      </select>
+                    </div>
+                </div>
               <div class="form-group">
                   	<label for="firstname" class="col-sm-3 control-label">numero de documento</label>
 
@@ -109,7 +125,6 @@
         </div>
     </div>
 </div>
-
 <!-- Edit -->
 <div class="modal fade" id="edit">
     <div class="modal-dialog">
@@ -117,7 +132,7 @@
           	<div class="modal-header">
             	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
               		<span aria-hidden="true">&times;</span></button>
-            	<h4 class="modal-title"><b><span class="id_empleado"></span></b></h4>
+            	<h4 class="modal-title"><b><span class="employee_id"></span></b></h4>
           	</div>
           	<div class="modal-body">
             	<form class="form-horizontal" method="POST" action="employee_edit.php">
@@ -126,7 +141,7 @@
                     <label for="edit_firstname" class="col-sm-3 control-label">Nombre</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_firstname" name="nombres">
+                      <input type="text" class="form-control" id="edit_firstname" name="nombres" >
                     </div>
                 </div>
                 <div class="form-group">
@@ -223,7 +238,7 @@
           	<div class="modal-header">
             	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
               		<span aria-hidden="true">&times;</span></button>
-            	<h4 class="modal-title"><b><span class="employee_id"></span></b></h4>
+            	<h4 class="modal-title"><b><span class="id_empleado"></span></b></h4>
           	</div>
           	<div class="modal-body">
             	<form class="form-horizontal" method="POST" action="employee_delete.php">
@@ -241,32 +256,50 @@
         </div>
     </div>
 </div>
-
-<!-- Update Photo -->
-<div class="modal fade" id="edit_photo">
+<!-- liquidar empleado -->
+<div class="modal fade" id="addnew1">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b><span class="del_employee_name"></span></b></h4>
-            </div>
-            <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="employee_edit_photo.php" enctype="multipart/form-data">
-                <input type="hidden" class="empid" name="id">
-                <div class="form-group">
-                    <label for="photo" class="col-sm-3 control-label">Foto</label>
-
-                    <div class="col-sm-9">
-                      <input type="file" id="photo" name="photo" required>
+          	<div class="modal-header">
+            	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              		<span aria-hidden="true">&times;</span></button>
+            	<h4 class="modal-title"><b>Liquidar Empleado</b></h4>
+          	</div>
+          	<div class="modal-body">
+            	<form class="form-horizontal" method="POST" action="employee_add.php" enctype="multipart/form-data">
+              <div class="form-group">
+                    <label for="gender" class="col-sm-3 control-label">Tipo documento</label>
+                    <div class="col-sm-9"> 
+                      <select class="form-control" id="tipo_doc" name="tipo_doc" required>
+                        <option value="" selected>- Seleccionar -</option>
+                        <option value="cedula ciudadania">CC</option>
+                        <option value="cedula extranjeria">CE</option>
+                      </select>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
-              <button type="submit" class="btn btn-success btn-flat" name="upload"><i class="fa fa-check-square-o"></i> Actualizar</button>
-              </form>
-            </div>
+                <div class="form-group">
+                     <label for="firstname" class="col-sm-3 control-label">numero de documento</label>
+                     <div class="col-sm-9">
+                         <input type="text" class="form-control" id="employee_id" name="id_empleado" required>
+                     </div>
+                </div>  
+                <div class="form-group">
+                     <label for="firstname" class="col-sm-3 control-label">rango de fechas a liquidar</label>
+                     <div class="col-sm-9">  
+                     <div class="input-group">  
+                     <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                     </div>
+                    <input type="text" class="form-control pull-right col-sm-8" id="reservation" name="date_range" value="<?php echo (isset($_GET['range'])) ? $_GET['range'] : $range_from.' - '.$range_to; ?>">
+                  </div>
+                  </div>
+                </div>
+              
+          	<div class="modal-footer">
+            	<button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
+            	<button type="submit" class="btn btn-primary btn-flat" name="add"><i class="glyphicon glyphicon-print"></i> Desprendible de pago </button>
+            	</form>
+          	</div>
         </div>
     </div>
-</div>    
+</div>
