@@ -2,7 +2,7 @@
     <!-- Logo -->
     <a href="#" class="logo">
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Configuro</b>Web</span>
+      <span class="logo-lg"><b>NominApp</b></span>
       <img src="../images/logo1.jpg" class="logo-image" alt="Logo Image">
       
     </a>
