@@ -50,7 +50,7 @@
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="payroll.php" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="liquidacion_nomina.php" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
                 <div id="legend" class="text-center"></div>
