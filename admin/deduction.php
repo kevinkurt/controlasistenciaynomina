@@ -57,12 +57,12 @@
                 </thead>
                 <tbody>
                   <?php
-                    $sql = "SELECT * FROM deductions";
+                    $sql = "SELECT * FROM productos";
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       echo "
                         <tr>
-                          <td>".$row['description']."</td>
+                          <td>".$row['descripcion']."</td>
                           <td>".number_format($row['amount'], 2)."</td>
                           <td>
                             <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Editar</button>

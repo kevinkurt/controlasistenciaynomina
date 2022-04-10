@@ -11,12 +11,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
     <h1>
-      Nomina / Modificacion Nomina
+      Inventario / inventario por terminar
       </h1>
       <ol class="breadcrumb">
-        <li><a href="submenuNomina.php"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li>Empleados</li>
-        <li class="active">Lista de Empleados</li>
+        <li><a href="SubMenuInventario.php"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li>Inventario</li>
+        <li class="active">Inventario por terminar</li>
       </ol>
     </section>
     <!-- Main content -->
@@ -45,36 +45,34 @@
       ?>
       <div class="row">
         <div class="col-xs-12">
-          <div class="box">
+         <div class="box">
             <div class="box-header with-border">
-               <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Nuevo</a>
+              <h3 class="box-title">Informe de productos por terminar</h3> 
+              <div class="box-tools pull-right">                
+                <form class="form-inline">
+                  <div class="form-group">
+                  <button type="submit" class="btn btn-primary btn-flat" name="add"><i class="glyphicon glyphicon-print"></i> Descarga informe de productos </button>  
+                  </div>
+                </form>
+              </div>             
             </div>
             <div class="box-body">
               <table id="example1" class="table table-bordered">
                 <thead>
-                  <th>ID Empleado</th>
-                  <th>Nombre</th>
-                  <th>Posición</th>
-                  <th>Horarios</th>
-                  <th>Miembro Desde</th>
-                  <th>Acción</th>
+                <th>Nombre producto</th>
+                  <th>Cantidad</th>
+                  <th>Fecha insercion</th> 
                 </thead>
                 <tbody>
                   <?php
-                     $sql = "SELECT *, empleado.id_empleado AS empid FROM empleado LEFT JOIN cargos ON cargos.id_cargo=empleado.id_cargo LEFT JOIN horario ON horario.id_horario=empleado.id_horario";
+                     $sql = "SELECT * FROM productos WHERE Cantidad <='5' ";
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       ?>
                         <tr>
-                          <td><?php echo $row['id_empleado']; ?></td>
-                          <td><?php echo $row['nombres'].' '.$row['apellidos']; ?></td>
-                          <td><?php echo $row['descripcion']; ?></td>
-                          <td><?php echo date('h:i A', strtotime($row['Hora_ingreso'])).' - '.date('h:i A', strtotime($row['Hora_salida'])); ?></td>
-                          <td><?php echo date('M d, Y', strtotime($row['fecha_creacion'])) ?></td>
-                          <td>
-                            <button class="btn btn-success btn-sm edit btn-flat" data-id="<?php echo $row['empid']; ?>"><i class="fa fa-edit"></i> Editar</button>
-                            <button class="btn btn-danger btn-sm delete btn-flat" data-id="<?php echo $row['empid']; ?>"><i class="fa fa-trash"></i> Eliminar</button>
-                          </td>
+                          <<td><?php echo $row['descripcion']; ?></td>
+                          <td><?php echo $row['Cantidad']; ?></td>
+                          <td><?php echo date('M d, Y', strtotime($row['fecha_insercion'])) ?></td>
                         </tr>
                       <?php
                     }
@@ -89,7 +87,7 @@
   </div>
     
   <?php include 'includes/footer.php'; ?>
-  <?php include 'includes/employee_modal.php'; ?>
+  <?php include 'includes/productos_modal.php'; ?>
 </div>
 <?php include 'includes/scripts.php'; ?>
 <script>
@@ -97,14 +95,14 @@ $(function(){
   $('.edit').click(function(e){
     e.preventDefault();
     $('#edit').modal('show');
-    var id = $(this).data('id_empleado');
+    var id = $(this).data('id_producto');
     getRow(id);
   });
 
   $('.delete').click(function(e){
     e.preventDefault();
     $('#delete').modal('show');
-    var id = $(this).data('id');
+    var id = $(this).data('id_producto');
     getRow(id);
   });
 });

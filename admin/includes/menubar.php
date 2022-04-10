@@ -23,7 +23,6 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="employee.php"><i class="fa fa-circle-o"></i> Lista de Empleados</a></li>
             <li><a href="overtime.php"><i class="fa fa-circle-o"></i> Tiempo Extra</a></li>
             <li><a href="cashadvance.php"><i class="fa fa-circle-o"></i> Adelanto en Efectivo</a></li>
             <li><a href="schedule.php"><i class="fa fa-circle-o"></i> Horarios</a></li>
