@@ -3,7 +3,7 @@
   $range_to = date('m/d/Y');
   $range_from = date('m/d/Y', strtotime('-30 day', strtotime($range_to)));
 ?>
-
+ 
 <!-- Add -->
 <div class="modal fade" id="addnew">
     <div class="modal-dialog">
