@@ -1,7 +1,7 @@
 <?php
   session_start();
   if(isset($_SESSION['admin'])){
-    header('location:home.php');
+    header('location:vistaAdministrador.php');
   }
 ?>
 <?php include 'includes/header.php'; ?>

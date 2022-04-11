@@ -39,7 +39,7 @@
   		
 </div>
 	
-<?php include 'scripts.php' ?>
+<?php include 'vistaoperario.php' ?> 
 <script type="text/javascript">
 $(function() {
   var interval = setInterval(function() {
