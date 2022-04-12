@@ -15,8 +15,8 @@
           Nomina
         </h1>
         <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-          <li>Nomina</li>
+          <li><a href="vistaoperario.php"><i class="fa fa-user"></i> Inicio</a></li>
+          <li><a href="subMenuNominaOperador.php"><i class="fa fa-book"></i> Nomina</a></li>
         </ol>
       </section>
 
