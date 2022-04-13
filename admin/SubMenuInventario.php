@@ -4,7 +4,7 @@
 <div class="wrapper">
 
   <?php include 'includes/navbar.php'; ?>
-  <?php include 'includes/menubar.php'; ?>
+  <?php include 'includes/menuAdministrador.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -26,7 +26,7 @@
         <div class="col-xs-12">
           <div class="box">
           <div class="box-body">
-              <div class="chart">
+              <div class="chart" style="margin-left: 200px;padding-top: 100px; ">
                 <br>
                 <div class="col-md-3 col-sm-6 col-xs-12">
           <!-- small box -->
@@ -76,5 +76,7 @@
       </div>
     </section>   
   </div>
+  <?php include 'includes/footer.php'; ?>
+  <?php include 'includes/scripts.php'; ?>
 </body>
 </html>

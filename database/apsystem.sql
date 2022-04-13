@@ -374,16 +374,17 @@ INSERT INTO `productos` VALUE (188,'cinta malla',2,3800,5320,sysdate());
 
 -- tabla ventas
 
-CREATE TABLE `ventas` (
-`id_ventas` int(11) NOT NULL,
-`id_producto` int(11) NOT NULL,
-`Cantidad` int(11) NOT NULL,
-`fecha_venta` date NOT NULL
+CREATE TABLE ventas (
+id_ventas int(11) NOT NULL,
+id_producto int(11) NOT NULL,
+Cantidad int(11) NOT NULL,
+valor_por_venta double NOT NULL,
+fecha_venta date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
 
-INSERT INTO `ventas` (`id_ventas`, `id_producto`, `Cantidad`, `fecha_venta`) VALUES
-(1, 111, 12 , sysdate());
+INSERT INTO ventas (id_ventas, id_producto, Cantidad, valor_por_venta, fecha_venta) VALUES
+(1, 111, 12 ,24000, sysdate());
 
  **/
 CREATE TABLE `admin` (

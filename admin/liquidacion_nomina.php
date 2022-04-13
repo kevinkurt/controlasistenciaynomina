@@ -9,7 +9,7 @@
 <div class="wrapper">
 
   <?php include 'includes/navbar.php'; ?>
-  <?php include 'includes/menubar.php'; ?>
+  <?php include 'includes/menuAdministrador.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -26,34 +26,9 @@
     </section>
     <!-- Main content -->
     <section class="content">
-      <?php
-        if(isset($_SESSION['error'])){
-          echo "
-            <div class='alert alert-danger alert-dismissible'>
-              <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-              <h4><i class='icon fa fa-warning'></i> Error!</h4>
-              ".$_SESSION['error']."
-            </div>
-          ";
-          unset($_SESSION['error']);
-        }
-        if(isset($_SESSION['success'])){
-          echo "
-            <div class='alert alert-success alert-dismissible'>
-              <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-              <h4><i class='icon fa fa-check'></i>¡Proceso Exitoso!</h4>
-              ".$_SESSION['success']."
-            </div>
-          ";
-          unset($_SESSION['success']);
-        }
-      ?>
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-          <div class="box-header with-border">
-               <a href="#addnew1" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Liquidar empleado</a>
-            </div>
             <div class="box-header with-border">
               <div class="pull-right">
                 <form method="POST" class="form-inline" id="payForm">
@@ -65,67 +40,62 @@
                   </div>
 
                   <button type="button" class="btn btn-success btn-sm btn-flat" id="payroll"><span class="glyphicon glyphicon-print"></span> Liquidar empleados</button>
-                  <button type="button" class="btn btn-primary btn-sm btn-flat" id="payslip"><span class="glyphicon glyphicon-print"></span> Desprendible de pago</button>
                 </form>
               </div>
             </div>
             <div class="box-body">
               <table id="example1" class="table table-bordered">
                 <thead>
-                  <th>Nombre Empleado</th>
                   <th>ID Empleado</th>
-                  <th>Gross</th>
-                  <th>Deducciones</th>
+                  <th>Nombre Empleado</th>                
+                  <th>Sueldo neto</th>
+                  <th>Deducciones salud y pension</th>
                   <th>Avance de Efectivo</th>
-                  <th>Pago Neto</th>
+                  <th>Subsidio de transporte</th>
+                  <th>Calculo valor horas extras</th>
+                  <th>Pago total</th>
+                  <th>Mes y año de generacion</th>
                 </thead>
                 <tbody>
                   <?php
-                    $sql = "SELECT *, SUM(amount) as total_amount FROM deductions";
+                    $sql = "SELECT  e.id_empleado AS Numero_documento
+                    , UPPER(CONCAT(e.nombres,' ',e.apellidos)) AS Nombre
+                    , (c.sueldo) AS sueldo_neto
+                    , ((c.sueldo*0.04)*2) AS deducciones_salud_y_pension    
+                    , CASE  WHEN m.monto IS NULL THEN 0  ELSE m.monto END  AS avances_en_efectivo
+                    , CASE  WHEN c.sueldo> (SELECT monto FROM valores WHERE tipo='sueldo_min_trans') THEN 0 ELSE (SELECT monto FROM valores WHERE tipo='subsidio_transporte')   END AS subsidio_transporte
+                    , CASE  WHEN t.cantidad_horas IS NULL THEN 0 ELSE (SUM(CASE WHEN t.tipo_hora='Nocturna_festiva' THEN  ((c.sueldo/240)* 2.5)*t.cantidad_horas  WHEN t.tipo_hora='Diurna_festiva'  THEN  ((c.sueldo/240)* 2)*t.cantidad_horas  WHEN t.tipo_hora='Diurna_normal'  THEN  ((c.sueldo/240)* 1.25)*t.cantidad_horas  ELSE ((c.sueldo/240)* 1.75)*t.cantidad_horas END )) END AS calculo_valor_horas_extras
+                    , (c.sueldo+(CASE  WHEN c.sueldo> (SELECT monto FROM valores WHERE tipo='sueldo_min_trans') THEN 0 ELSE (SELECT monto FROM valores WHERE tipo='subsidio_transporte')   END ) + (CASE  WHEN t.cantidad_horas IS NULL THEN 0 ELSE (SUM(CASE WHEN t.tipo_hora='Nocturna_festiva' THEN  ((c.sueldo/240)* 2.5)*t.cantidad_horas  WHEN t.tipo_hora='Diurna_festiva'  THEN  ((c.sueldo/240)* 2)*t.cantidad_horas  WHEN t.tipo_hora='Diurna_normal'  THEN  ((c.sueldo/240)* 1.25)*t.cantidad_horas  ELSE ((c.sueldo/240)* 1.75)*t.cantidad_horas END )) END )-(((c.sueldo*0.04)*2)+(CASE  WHEN m.monto IS NULL THEN 0  ELSE m.monto END)))  AS sueldo_total
+                    , CONCAT(EXTRACT(MONTH FROM SYSDATE()),' ',EXTRACT(YEAR FROM SYSDATE()))  AS mes_ano_generacion
+                    FROM empleado e
+                    JOIN cargos c
+                    ON e.id_cargo=c.id_cargo
+                    AND DATE_FORMAT(SYSDATE(), '%m/%d/%Y')  BETWEEN '04/01/2022' AND '04/30/2022'
+                    LEFT JOIN tiempo_extra t
+                    ON e.id_empleado=t.id_empleado
+                    LEFT JOIN movimientos m
+                    ON e.id_empleado=m.id_empleado
+                    GROUP BY e.id_empleado, UPPER(CONCAT(e.nombres,' ',e.apellidos)), (c.sueldo)
+                    , CASE  WHEN m.monto IS NULL THEN 0  ELSE m.monto END 
+                    , CASE  WHEN c.sueldo> (SELECT monto FROM valores WHERE tipo='sueldo_min_trans') THEN 0 ELSE (SELECT monto FROM valores WHERE tipo='subsidio_transporte')   END
+                    , CONCAT(EXTRACT(MONTH FROM SYSDATE()),' ',EXTRACT(YEAR FROM SYSDATE())) ";
                     $query = $conn->query($sql);
-                    $drow = $query->fetch_assoc();
-                    $deduction = $drow['total_amount'];
-  
-                    
-                    $to = date('Y-m-d');
-                    $from = date('Y-m-d', strtotime('-30 day', strtotime($to)));
-
-                    if(isset($_GET['range'])){
-                      $range = $_GET['range'];
-                      $ex = explode(' - ', $range);
-                      $from = date('Y-m-d', strtotime($ex[0]));
-                      $to = date('Y-m-d', strtotime($ex[1]));
-                    }
-
-                    $sql = "SELECT *, SUM(num_hr) AS total_hr, attendance.employee_id AS empid FROM attendance LEFT JOIN employees ON employees.id=attendance.employee_id LEFT JOIN position ON position.id=employees.position_id WHERE date BETWEEN '$from' AND '$to' GROUP BY attendance.employee_id ORDER BY employees.lastname ASC, employees.firstname ASC";
-
-                    $query = $conn->query($sql);
-                    $total = 0;
                     while($row = $query->fetch_assoc()){
-                      $empid = $row['empid'];
-                      
-                      $casql = "SELECT *, SUM(amount) AS cashamount FROM cashadvance WHERE employee_id='$empid' AND date_advance BETWEEN '$from' AND '$to'";
-                      
-                      $caquery = $conn->query($casql);
-                      $carow = $caquery->fetch_assoc();
-                      $cashadvance = $carow['cashamount'];
-
-                      $gross = $row['rate'] * $row['total_hr'];
-                      $total_deduction = $deduction + $cashadvance;
-                      $net = $gross - $total_deduction;
-
-                      echo "
+                      ?>
                         <tr>
-                          <td>".$row['lastname'].", ".$row['firstname']."</td>
-                          <td>".$row['employee_id']."</td>
-                          <td>".number_format($gross, 2)."</td>
-                          <td>".number_format($deduction, 2)."</td>
-                          <td>".number_format($cashadvance, 2)."</td>
-                          <td>".number_format($net, 2)."</td>
+                        <td><?php echo $row['Numero_documento']?></td>
+                        <td><?php echo $row['Nombre']?></td>
+                        <td><?php echo $row['sueldo_neto']?></td>
+                        <td><?php echo $row['deducciones_salud_y_pension']?></td>
+                        <td><?php echo $row['avances_en_efectivo']?></td> 
+                        <td><?php echo $row['subsidio_transporte']?></td> 
+                        <td><?php echo $row['calculo_valor_horas_extras']?></td> 
+                        <td><?php echo $row['sueldo_total']?></td> 
+                        <td><?php echo (isset($_GET['range'])) ? $_GET['range'] : $range_from.' - '.$range_to; ?></td> 
+                        <td><?php echo $range_to;?></td>
                         </tr>
-                      ";
+                        <?php
                     }
-
                   ?>
                 </tbody>
               </table>
@@ -137,28 +107,14 @@
   </div>
     
   <?php include 'includes/footer.php'; ?>
-  <?php include 'includes/employee_modal.php'; ?>
+
 </div>
 <?php include 'includes/scripts.php'; ?> 
 <script>
 $(function(){
-  $('.edit').click(function(e){
-    e.preventDefault();
-    $('#edit').modal('show');
-    var id = $(this).data('id');
-    getRow(id);
-  });
-
-  $('.delete').click(function(e){
-    e.preventDefault();
-    $('#delete').modal('show');
-    var id = $(this).data('id');
-    getRow(id);
-  });
-
   $("#reservation").on('change', function(){
     var range = encodeURI($(this).val());
-    window.location = 'payroll.php?range='+range;
+    window.location = 'liquidacion_nomina.php?range='+range;
   });
 
   $('#payroll').click(function(e){

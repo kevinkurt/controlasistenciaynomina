@@ -13,8 +13,6 @@
         <li class="treeview">
         <li><a href="submenuInventario.php"><i class="fa fa-calendar"></i> <span>Inventario</span></a></li>
         <li class="treeview"></li>
-        <li><a href="deduction.php"><i class="fa fa-file-text"></i> Deducciones</a></li>
-        <li><a href="position.php"><i class="fa fa-suitcase"></i> Cargos</a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

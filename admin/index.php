@@ -1,19 +1,22 @@
 <?php
   session_start();
-  if(isset($_SESSION['admin'])){
-    header('location:vistaAdministrador.php');
+  if(isset($_SESSION['Cliente_Admin1'])){
+    header('location:vistaoperario.php');
   }
 ?>
 <?php include 'includes/header.php'; ?>
 <body class="hold-transition login-page">
+<div class="row">
+    <div class="col-xs-4"> 
+	<a href="index copy.php" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-sign-in"></i> <span>Administrador</span></a>
+    </div>
+</div> 
 <div class="login-box">
   	<div class="login-logo"> 
-  		<b>Ingreso Usuarios</b>
+  		<b>Ingreso Operario</b>
   	</div>
-  
   	<div class="login-box-body">
-    	<p class="login-box-msg">Ingresa para iniciar tu sesión</p>
-
+    	<p class="login-box-msg">Ingresa tu sesión</p>
     	<form action="login.php" method="POST">
       		<div class="form-group has-feedback">
         		<input type="text" class="form-control" name="usuario" placeholder="ingresar usuario" required autofocus>
@@ -30,6 +33,7 @@
       		</div>
     	</form>
   	</div>
+	  
   	<?php
   		if(isset($_SESSION['error'])){
   			echo "

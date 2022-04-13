@@ -4,7 +4,7 @@
 <div class="wrapper">
 
   <?php include 'includes/navbar.php'; ?>
-  <?php include 'includes/menubar.php'; ?>
+  <?php include 'includes/menuAdministrador.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

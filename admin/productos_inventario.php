@@ -4,7 +4,7 @@
 <div class="wrapper">
 
   <?php include 'includes/navbar.php'; ?>
-  <?php include 'includes/menubar.php'; ?>
+  <?php include 'includes/menuAdministrador.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -51,7 +51,7 @@
               <div class="box-tools pull-right">                
                <form class="form-inline">
                 <div class="form-group">
-                  <button type="submit" class="btn btn-primary btn-flat" name="add"><i class="glyphicon glyphicon-print"></i> Descarga informe de productos </button>  
+                  <button type="submit" href="reportes.php" class="btn btn-primary btn-flat" name="add"><i class="glyphicon glyphicon-print"></i> Descarga informe de productos </button>  
                 </div>
                </form>
            </div>
