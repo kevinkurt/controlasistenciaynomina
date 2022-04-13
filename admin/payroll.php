@@ -74,10 +74,10 @@
                 <thead>
                   <th>Nombre Empleado</th>
                   <th>ID Empleado</th>
-                  <th>Gross</th>
+                  <th>Sueldo neto</th>
                   <th>Deducciones</th>
                   <th>Avance de Efectivo</th>
-                  <th>Pago Neto</th>
+                  <th>Pago total</th>
                 </thead>
                 <tbody>
                   <?php

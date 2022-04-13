@@ -4,7 +4,7 @@
 <div class="wrapper">
 
   <?php include 'includes/navbar.php'; ?>
-  <?php include 'includes/menubar.php'; ?>
+  <?php include 'includes/menuAdministrador.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -23,26 +23,41 @@
             <div class="box-header with-border">
               <h3 class="box-title">Informe de reporte de ventas</h3>
               <div class="box-tools pull-right">
-                <form class="form-inline">
+              <form class="form-inline">
                   <div class="form-group">
-                    <label>Reporte ventas: </label>
-                    <select class="form-control input-sm" id="select_year">
-                    <option value="0">Seleccionar</option>
-                        <option value="Dia">Dia</option>
-                        <option value="Mes">Mes</option>
-                        <option value="Año">Año</option>
-                    </select>
-                  </div>
-                </form>
-                
-                <form class="form-inline">
-                  <div class="form-group">
-                  <button type="submit" class="btn btn-primary btn-flat" name="add"><i class="glyphicon glyphicon-print"></i> Descarga informe de ventas </button>  
+                  <a href="reportes.php" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Liquidar empleado</a>
+                  <button  type="submit" class="btn btn-primary btn-flat" name="reportes"><i class="glyphicon glyphicon-print"></i> Descarga informe de ventas </button>  
                 </div>
-                </form>
+                </form>               
               </div>
             </div>
             <div class="box-body">
+            <div class="box-body">
+              <table id="example1" class="table table-bordered">
+                <thead>
+                  <th>fecha venta</th>
+                  <th>cantidad productos</th>                
+                  <th>valor venta</th>
+                </thead>
+                <tbody>
+                  <?php
+                    $sql = "SELECT fecha_venta AS fecha, sum(cantidad) AS cantidad_producto, SUM(valor_por_venta) AS valor_por_venta
+                    FROM ventas
+                    GROUP BY fecha_venta";
+                    $query = $conn->query($sql);  
+                    while($row = $query->fetch_assoc()){
+                    ?>
+                        <tr>
+                          <td><?php echo $row['fecha'];?></td>
+                          <td><?php echo $row['cantidad_producto'];?></td>
+                          <td><?php echo $row['valor_por_venta'];?></td>
+                        </tr>
+                        <?php
+                    }
+                    ?> 
+                </tbody>
+              </table>
+            </div>
               <div class="chart">
                 <br>
                 
@@ -55,5 +70,7 @@
       </div>
     </section>   
   </div>
+  <?php include 'includes/footer.php'; ?>
+  <?php include 'includes/scripts.php'; ?>
 </body>
 </html>
