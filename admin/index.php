@@ -7,9 +7,7 @@
 <?php include 'includes/header.php'; ?>
 <body class="hold-transition login-page">
 <div class="row">
-    <div class="col-xs-4"> 
-	<a href="index copy.php" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-sign-in"></i> <span>Administrador</span></a>
-    </div>
+  
 </div> 
 <div class="login-box">
   	<div class="login-logo"> 
@@ -27,12 +25,22 @@
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
       		<div class="row">
-    			<div class="col-xs-4">
+    			<div class="col-xs-4; padding-left: 100px">
           			<button type="submit" class="btn btn-primary btn-block btn-flat" name="login"><i class="fa fa-sign-in"></i> Ingresar</button>
         		</div>
+
+				
       		</div>
     	</form>
+
+		
   	</div>
+
+
+	  
+
+	<div style="padding-top: 100px;padding-left: 90px ">
+	<a href="indexAdm.php" class="btn btn-primary btn-sm btn-flat" style="padding-left: 50px;padding-right: 50px;"><i class="fa fa-sign-in"></i> <span>Administrador</span></a>
 	  
   	<?php
   		if(isset($_SESSION['error'])){

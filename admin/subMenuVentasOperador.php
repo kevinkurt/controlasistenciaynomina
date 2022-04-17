@@ -1,6 +1,18 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/header.php'; ?>
 
+<head>
+
+  <style>
+    .content-header h1 {
+
+      text-align: center;
+ 
+    }
+  </style>
+
+</head>
+
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
 
@@ -22,61 +34,234 @@
 
       <!-- Main content -->
       <section class="content">
-       
 
 
-      
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="box">
+              <div class="box-body">
+                <div class="chart" style="margin-left: 300px;padding-top: 100px; ">
+                  <br>
+
+<div >
+
+
+                  <form>
+                    <div style="padding-left: 50px;">
+                      <label for="fname">Cantidad </label>
+
+                    </div>
+
+                    <div>
+                      <label for="fname">1 </label>
+
+                      <input type="text" id="fname" name="fname" value="">
+                    </div>
+
+
+                    <div>
+                      <label for="fname">2 </label>
+
+                      <input type="text" id="fname" name="fname" value="">
+                    </div>
+
+                    <div>
+                      <label for="fname">3 </label>
+
+                      <input type="text" id="fname" name="fname" value="">
+                    </div>
+
+
+                    <div>
+                      <label for="fname">4 </label>
+
+                      <input type="text" id="fname" name="fname" value="">
+                    </div>
+
+                    <div>
+                      <label for="fname">5 </label>
+
+                      <input type="text" id="fname" name="fname" value="">
+                    </div>
+
+
+
+                  </form>
+
+</div>
+
+<div style="position: absolute;    padding-left: 180px;
+">
+
+                  <form >
+                    <div style="padding-left: 50px;">
+                      <label for="fname">Producto </label>
+
+                    </div>
+
+                    <div>
+                      <label for="fname"> </label>
+
+                      <input type="text" id="fname" name="fname" value="">
+                    </div>
+
+
+                    <div>
+                      <label for="fname"> </label>
+
+                      <input type="text" id="fname" name="fname" value="">
+                    </div>
+
+                    <div>
+                      <label for="fname"> </label>
+
+                      <input type="text" id="fname" name="fname" value="">
+                    </div>
+
+
+                    <div>
+                      <label for="fname"> </label>
+
+                      <input type="text" id="fname" name="fname" value="">
+                    </div>
+
+                    <div>
+                      <label for="fname"> </label>
+
+                      <input type="text" id="fname" name="fname" value="">
+                    </div>
+
+
+
+                  </form>
+
+
+                  </div>
+
+
+                  <div style="position: absolute;    padding-left: 350px;
+">
+
+                  <form >
+                    <div style="padding-left: 40px;">
+                      <label for="fname">valor unitario </label>
+
+                    </div>
+
+                    <div>
+                      <label for="fname"></label>
+
+                      <input type="text" id="fname" name="fname" value="">
+                    </div>
+
+
+                    <div>
+                      <label for="fname"> </label>
+
+                      <input type="text" id="fname" name="fname" value="">
+                    </div>
+
+                    <div>
+                      <label for="fname"></label>
+
+                      <input type="text" id="fname" name="fname" value="">
+                    </div>
+
+
+                    <div>
+                      <label for="fname"> </label>
+
+                      <input type="text" id="fname" name="fname" value="">
+                    </div>
+
+                    <div>
+                      <label for="fname"> </label>
+
+                      <input type="text" id="fname" name="fname" value="">
+                    </div>
+
+
+
+                  </form>
+
+
+                  </div>
+
+
+                  <div style="position: absolute;    padding-left: 550px;
+">
+
+                  <form >
+                    <div style="padding-left: 40px;">
+                      <label for="fname">valor total </label>
+
+                    </div>
+
+                    <div>
+                      <label for="fname"></label>
+
+                      <input type="text" id="fname" name="fname" value="">
+                    </div>
+
+
+                    <div>
+                      <label for="fname"> </label>
+
+                      <input type="text" id="fname" name="fname" value="">
+                    </div>
+
+                    <div>
+                      <label for="fname"></label>
+
+                      <input type="text" id="fname" name="fname" value="">
+                    </div>
+
+
+                    <div>
+                      <label for="fname"> </label>
+
+                      <input type="text" id="fname" name="fname" value="">
+                    </div>
+
+                    <div>
+                      <label for="fname"> </label>
+
+                      <input type="text" id="fname" name="fname" value="">
+                    </div>
+
+
+
+                  </form>
+
+
+                  </div>
+
+
+
+
+                  <!-- ./col -->
+
+                  <div id="legend" class="text-center"></div>
+                  <canvas id="barChart" style="height:350px"></canvas>
+                </div>
+              </div>
+              <div class="row">
+                <br>
+
+
+              </div>
+            </div>
+          </div>
+
+
+
+
       </section>
+
+
     </div>
 
-    
+
     <?php include 'includes/footer.php'; ?>
-    <?php include 'includes/overtime_modal.php'; ?>
-  </div>
-  <?php include 'includes/scripts.php'; ?>
-  <script>
-    $(function() {
-      $('.edit').click(function(e) {
-        e.preventDefault();
-        $('#edit').modal('show');
-        var id = $(this).data('id');
-        getRow(id);
-      });
 
-      $('.delete').click(function(e) {
-        e.preventDefault();
-        $('#delete').modal('show');
-        var id = $(this).data('id');
-        getRow(id);
-      });
-    });
-
-    function getRow(id) {
-      $.ajax({
-        type: 'POST',
-        url: 'overtime_row.php',
-        data: {
-          id: id
-        },
-        dataType: 'json',
-        success: function(response) {
-          var time = response.hours;
-          var split = time.split('.');
-          var hour = split[0];
-          var min = '.' + split[1];
-          min = min * 60;
-          console.log(min);
-          $('.employee_name').html(response.firstname + ' ' + response.lastname);
-          $('.otid').val(response.otid);
-          $('#datepicker_edit').val(response.date_overtime);
-          $('#overtime_date').html(response.date_overtime);
-          $('#hours_edit').val(hour);
-          $('#mins_edit').val(min);
-          $('#rate_edit').val(response.rate);
-        }
-      });
-    }
-  </script>
 </body>
-
-</html>

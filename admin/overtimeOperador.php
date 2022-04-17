@@ -16,6 +16,9 @@
         </h1>
         <ol class="breadcrumb">
           <li><a href="vistaoperario.php"><i class="fa fa-user"></i> Inicio</a></li>
+
+          <li><a href="subMenuNominaOperador.php"><i class="fa fa-clock-o"></i> horas</a></li>
+          
           <li><a href="overtimeOperador.php"><i class="fa fa-pencil"></i> ingreso de horas</a></li>
 
 

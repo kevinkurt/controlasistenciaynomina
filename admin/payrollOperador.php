@@ -15,6 +15,19 @@ $range_from = date('m/d/Y', strtotime('-30 day', strtotime($range_to)));
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
+
+            <section class="content-header">
+        <h1>
+          Desprendible de nomina
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="vistaoperario.php"><i class="fa fa-user"></i> Inicio</a></li>
+          <li><a href="subMenuNominaOperador.php"><i class="fa fa-book"></i> Nomina</a></li>
+
+          <li><a href=""><i class="fa fa-download"></i> Desprendible de nomina</a></li>
+
+        </ol>
+      </section>
             <section class="content">
         <?php
         if (isset($_SESSION['error'])) {

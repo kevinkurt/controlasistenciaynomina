@@ -32,7 +32,7 @@
                   <div class="col-lg-3 col-xs-12">
                     <!-- small box -->
                     <div class="small-box bg-navy">
-                      <div class="inner">
+                      <div class="inner" style="padding-bottom: 30px";>
                         <p>ingresar horas extras</p>
                       </div>
                       <div class="icon">
@@ -45,7 +45,7 @@
                   <div class="col-lg-3 col-xs-6">
                     <!-- small box -->
                     <div class="small-box bg-blue">
-                      <div class="inner">
+                      <div class="inner" style="padding-bottom: 30px;">
                         <p>Recibo de Nomina</p>
                       </div>
                       <div class="icon">
@@ -65,8 +65,19 @@
               </div>
             </div>
           </div>
+
+         
+
+
       </section>
+
+      
     </div>
+
+
+    <?php include 'includes/footer.php'; ?>
+
 </body>
+
 
 </html>
