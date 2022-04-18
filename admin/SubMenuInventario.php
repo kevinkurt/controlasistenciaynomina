@@ -3,25 +3,19 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-  <?php include 'includes/navbar.php'; ?>
+  <?php include 'includes/navegadorAdministrador.php'; ?>
   <?php include 'includes/menuAdministrador.php'; ?>
-
-  <!-- Content Wrapper. Contains page content -->
+<!-- titulo y retorno inicio -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
         Inventario
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li>Inventario</li>
+        <li><a href="vistaAdministrador.php"><i class="fa fa-dashboard"></i> Inicio</a></li>
       </ol>
     </section>
-
-    <!-- Main content -->
-    <section class="content">
-      
+    <section class="content">      
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
@@ -29,7 +23,7 @@
               <div class="chart" style="margin-left: 200px;padding-top: 100px; ">
                 <br>
                 <div class="col-md-3 col-sm-6 col-xs-12">
-          <!-- small box -->
+          <!-- opciones submenu -->
           <div class="small-box bg-red">
             <div class="inner">
               <p>Inventario por terminar</p>
@@ -40,9 +34,8 @@
             <a href="productos_por_terminar.php" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
          </div>
         </div>
-        <!-- ./col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
-          <!-- small box -->
+          <!-- opciones submenu -->
           <div class="small-box bg-green">
             <div class="inner">         
               <p>Inventario productos</p>
@@ -54,6 +47,7 @@
           </div>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
+          <!-- opciones submenu -->
         <div class="small-box bg-yellow">
             <div class="inner">
               <p>Modificacion productos</p>
@@ -76,7 +70,6 @@
       </div>
     </section>   
   </div>
-  <?php include 'includes/footer.php'; ?>
   <?php include 'includes/scripts.php'; ?>
 </body>
 </html>

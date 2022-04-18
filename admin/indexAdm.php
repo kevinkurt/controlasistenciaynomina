@@ -41,7 +41,7 @@ if (isset($_SESSION['Cliente_Admin1'])) {
 		</div>
 		<div class="login-box-body">
 			<p class="login-box-msg">Ingresa tu sesión</p>
-			<form action="login copy.php" method="POST">
+			<form action="loginAdmin.php" method="POST">
 				<div class="form-group has-feedback">
 					<input type="text" class="form-control" name="usuario" placeholder="ingresar usuario" required autofocus>
 					<span class="glyphicon glyphicon-user form-control-feedback"></span>

@@ -8,12 +8,57 @@
   }
 ?>
 <?php include 'includes/header.php'; ?>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Operador</title>
+
+  <style>
+    .content-wrapper {
+
+      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("../images/john-schnobrich-yFbyvpEGHFQ-unsplash.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+    }
+
+
+
+    .bienvenida {
+      padding-top: 200px;
+      padding-left: 240px;
+
+      position: absolute;
+
+      font-family: 'Akshar', sans-serif;
+      color: white;
+
+    }
+
+    .bienvenida h1 {
+      font-size: 9rem;
+      text-align: center;
+    }
+
+    .bienvenida p {
+      padding-left: 254px;
+      position: absolute;
+      font-size: 2rem;
+
+    }
+  </style>
+
+</head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   	<?php
     
-     include 'includes/navbar.php'; ?>
+     include 'includes/navegadorAdministrador.php'; ?>
   	<?php include 'includes/menuAdministrador.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -21,30 +66,23 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
     <!-- Main content -->
-    <section class="content">
+      <section class="content">
       <!-- Small boxes (Stat box) -->
       <div class="row">
-        <div class="col-xs-12">
-        <div class="box">
-                <div class="box-body" style="padding-left: 550px;">
-
-                  <body>
-                    <header>
-                      <section>
-                        <h1>BIENVENIDO</h1>
-                        <span class="logo-lg"><b>NominApp</b></span>
-                      </section>
-                    </header>
-                  </body>
-
-                </div>
-              </div>
-      </section>
-      <!-- right col -->
-    </div>
-  	<?php include 'includes/footer.php'; ?>
+            <div class="col-xs-12">
+              <div class="bienvenida">
+                <h1>Bienvenidos a NominApp</h1>  
+                  <p>
+                    Sistema de Control de Nómina, ventas e inventarios
+                  </p>                    
+              </div>           
+            </div>                
+        </div>
+        
+   </div>
 
 </div>
+
 <!-- ./wrapper -->
 
 <!-- Chart Data -->

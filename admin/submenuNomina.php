@@ -3,7 +3,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-  <?php include 'includes/navbar.php'; ?>
+  <?php include 'includes/navegadorAdministrador.php'; ?>
   <?php include 'includes/menuAdministrador.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -11,11 +11,10 @@
     <!-- Content Header (Page header) -->
     <section class="content-header"> 
       <h1>
-        Nomina
+        Nomina 
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li>Nomina</li>
+        <li><a href="vistaAdministrador.php"><i class="fa fa-dashboard"></i> Inicio</a></li>
       </ol>
     </section>
     <!-- Main content -->
@@ -41,7 +40,7 @@
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-purple">
+          <div class="small-box bg-purple"> 
             <div class="inner">         
               <p>Liquidar Nomina</p>
             </div>
@@ -65,7 +64,6 @@
     </section>   
     
   </div>
-  <?php include 'includes/footer.php'; ?>
   <?php include 'includes/scripts.php'; ?>
 </body>
 </html>

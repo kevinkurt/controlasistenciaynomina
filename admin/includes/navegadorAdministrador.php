@@ -3,7 +3,6 @@
   <a href="#" class="logo">
     <!-- logo for regular state and mobile devices -->
     <span class="logo-lg"><b>Ferreteria </b>rivera2010</span>
-    
 
   </a>
   <!-- Header Navbar: style can be found in header.less -->
@@ -16,7 +15,7 @@
     <div>
 
       <div style="position:absolute; top: 11px;; left:600px;color:white; font-size: medium">
-        <strong>Operario</strong>
+        <strong>Administrador</strong> 
       </div>
     </div>
 

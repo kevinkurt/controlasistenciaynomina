@@ -165,5 +165,3 @@
 
     });
 </script>
-
-<?php include 'includes/footer.php'; ?>
