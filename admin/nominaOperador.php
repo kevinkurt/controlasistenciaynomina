@@ -1,29 +1,34 @@
 <?php include 'includes/session.php'; ?>
+<?php
+include '../timezone.php';
+$range_to = date('m/d/Y');
+$range_from = date('m/d/Y', strtotime('-30 day', strtotime($range_to)));
+?>
 <?php include 'includes/header.php'; ?>
 
 <body class="hold-transition skin-blue sidebar-mini">
-  <div class="wrapper">
+    <div class="wrapper">
 
-    <?php include 'includes/navbarOperador.php'; ?>
-    <?php include 'includes/menubarOperador.php'; ?>
+        <?php include 'includes/navegadorOperador.php'; ?>
+        <?php include 'includes/menubarOperador.php'; ?>
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+
+            <section class="content-header">
         <h1>
-          ingreso de horas extras
+          Desprendible de nomina
         </h1>
         <ol class="breadcrumb">
           <li><a href="vistaoperario.php"><i class="fa fa-user"></i> Inicio</a></li>
-          <li><a href="overtimeOperador.php"><i class="fa fa-pencil"></i> ingreso de horas</a></li>
+          <li><a href="subMenuNominaOperador.php"><i class="fa fa-book"></i> Nomina</a></li>
 
-
+          <li><a href=""><i class="fa fa-download"></i> Desprendible de nomina</a></li>
 
         </ol>
       </section>
-      <!-- Main content -->
-      <section class="content">
+            <section class="content">
         <?php
         if (isset($_SESSION['error'])) {
           echo "
@@ -49,47 +54,39 @@
         <div class="row">
           <div class="col-xs-12">
             <div class="box">
-              <div class="box-header with-border">
-                <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Nuevo</a>
-              </div>
+            
               <div class="box-body">
                 <table id="example1" class="table table-bordered">
                   <thead>
                     <th class="hidden"></th>
-                    <th>Fecha Hora</th>
-                    <th>id empleado</th>
-                    <th>cantidad de horas</th>
-                    <th>tipo de hora</th>
-                                              
-                    <th></th>
+                    <th>fecha</th>
+                    <th>id empelado</th>
+                    <th>sueldo neto</th>
+                    <th>sueldo total </th>
+                    <th>Acción</th>
                   </thead>
                   <tbody>
                     <?php
-
-                    $sql = "SELECT *, overtime.id AS otid, employees.employee_id AS empid FROM overtime LEFT JOIN employees ON employees.id=overtime.employee_id ORDER BY date_overtime DESC";
-
-                    $sql = "SELECT *, tiempo_extra.id AS otid, empleado.id_empleado AS empid
-                    FROM tiempo_extra
-                    LEFT JOIN empleado
-                    ON empleado.id_empleado=tiempo_extra.id_empleado
-                    ORDER BY tiempo_extra.Fecha_hora_extra DESC";                    
-
+                  
+                    $sql = "SELECT fecha_generacion, numero_documento , sueldo AS sueldo_neto, (sueldo+subsidio_transporte + (SELECT SUM(calculo_valor_hora) FROM maestra_sueldos WHERE numero_documento=11)) - ((aportes*2) + CASE  WHEN monto_movimiento IS NULL THEN 0  ELSE monto_movimiento END)  AS sueldo_total FROM maestra_sueldos
+                    WHERE numero_documento=11
+                    GROUP BY numero_documento,sueldo";
+                    
                     $query = $conn->query($sql);
                     while ($row = $query->fetch_assoc()) {
                       echo "
                         <tr>
-                          <td class='hidden'></td> 
+                          <td class='hidden'></td>
+                          <td>" . date('M , Y', strtotime($row['fecha_generacion'])) . "</td>
+                          <td>" . $row['numero_documento'] . "</td>
                           
-                          <td>" . date('M d, Y', strtotime($row['Fecha_hora_extra'])) . "</td>
-
-
-                          <td>" . $row['empid'] . "</td>
-
-                          <td>" . $row['Cantidad_horas'] ."</td>
-
-
-                          <td>" . $row['tipo_hora'] . "</td>
-                      
+                          <td>" . $row['sueldo_neto'] . "</td>
+                          <td>" . $row['sueldo_total'] . "</td>
+                    
+                          <td>
+                            <button class='btn btn-success btn-sm btn-flat edit' data-id='" . $row['numero_documento'] . "'><i class='fa fa-edit'></i> Desprendible de pago </button>
+                            
+                          </td>
                         </tr>
                       ";
                     }
@@ -103,6 +100,7 @@
       </section>
     </div>
 
+    
     <?php include 'includes/footer.php'; ?>
     <?php include 'includes/overtime_modal.php'; ?>
   </div>
@@ -115,8 +113,6 @@
         var id = $(this).data('id');
         getRow(id);
       });
-
-      
 
       $('.delete').click(function(e) {
         e.preventDefault();

@@ -16,12 +16,49 @@ if (isset($_GET['year'])) {
   <link rel="stylesheet" href="style.css">
   <title>Operador</title>
 
+  <style>
+    .content-wrapper {
+
+      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("../images/john-schnobrich-yFbyvpEGHFQ-unsplash.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+    }
+
+
+
+    .bienvenida {
+      padding-top: 200px;
+      padding-left: 240px;
+
+      position: absolute;
+
+      font-family: 'Akshar', sans-serif;
+      color: white;
+
+    }
+
+    .bienvenida h1 {
+      font-size: 9rem;
+      text-align: center;
+    }
+
+    .bienvenida p {
+      padding-left: 254px;
+      position: absolute;
+      font-size: 2rem;
+
+    }
+  </style>
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
 
-    <?php include 'includes/navbarOperador.php'; ?>
+    <?php include 'includes/navegadorOperador.php'; ?>
     <?php include 'includes/menubarOperador.php'; ?>
 
     <!-- Content Wrapper. Contains page content -->
@@ -35,23 +72,39 @@ if (isset($_GET['year'])) {
 
           <div class="row">
             <div class="col-xs-12">
-              <div class="box">
-                <div class="box-body" style="padding-left: 550px;">
 
-                  <body>
-                    <header>
-                      <section>
-                        <h1>BIENVENIDO</h1>
-                        <span class="logo-lg"><b>NominApp</b></span>
-                      </section>
-                    </header>
-                  </body>
+
+
+              <div class="bienvenida"">
+                     
+                      <h1>Bienvenidos a NominApp</h1>  
+            
+
+
+                  <p>
+
+                  
+Sistema de Control de Nómina, ventas e inventarios
+
+                  </p>
+                    
+                        </div>
+           
+
+        
+                
 
                 </div>
+                
               </div>
-        </section>
+
+   
+              
+        
 
     </div>
+
+    
     <?php include 'includes/footer.php'; ?>
 
   </div>
