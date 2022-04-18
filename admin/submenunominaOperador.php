@@ -7,9 +7,7 @@
   <?php include 'includes/navegadorOperador.php'; ?>
   <?php include 'includes/menubarOperador.php'; ?>
 
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
           Nomina
@@ -19,10 +17,7 @@
           <li><a href="subMenuNominaOperador.php"><i class="fa fa-book"></i> Nomina</a></li>
         </ol>
       </section>
-
-      <!-- Main content -->
       <section class="content">
-
         <div class="row">
           <div class="col-lg-12">
             <div class="box">
@@ -30,7 +25,7 @@
                 <div class="chart" style="margin-left: 300px;padding-top: 100px; ">
                   <br>
                   <div class="col-lg-3 col-xs-12">
-                    <!-- small box -->
+                    <!-- opciones submenu -->
                     <div class="small-box bg-navy">
                       <div class="inner" style="padding-bottom: 30px";>
                         <p>ingresar horas extras</p>
@@ -41,9 +36,8 @@
                       <a href="horasOperador.php" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                   </div>
-                  <!-- ./col -->
                   <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
+                    <!-- opciones submenu -->
                     <div class="small-box bg-blue">
                       <div class="inner" style="padding-bottom: 30px;">
                         <p>Recibo de Nomina</p>
@@ -60,24 +54,11 @@
               </div>
               <div class="row">
                 <br>
-
-
               </div>
             </div>
-          </div>
-
-         
-
-
-      </section>
-
-      
+          </div>         
+      </section>      
     </div>
-
-
-    <?php include 'includes/footer.php'; ?>
-
+    <?php include 'includes/scripts.php'; ?>
 </body>
-
-
 </html>

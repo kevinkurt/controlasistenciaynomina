@@ -3,7 +3,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-  <?php include 'includes/navbar.php'; ?>
+  <?php include 'includes/navegadorAdministrador.php'; ?>
   <?php include 'includes/menuAdministrador.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -13,6 +13,9 @@
       <h1>
         Ventas
       </h1>
+      <ol class="breadcrumb">
+        <li><a href="vistaAdministrador.php"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      </ol>
     </section>
 
     <!-- Main content -->
@@ -25,7 +28,6 @@
               <div class="box-tools pull-right">
               <form class="form-inline">
                   <div class="form-group">
-                  <a href="reportes.php" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Liquidar empleado</a>
                   <button  type="submit" class="btn btn-primary btn-flat" name="reportes"><i class="glyphicon glyphicon-print"></i> Descarga informe de ventas </button>  
                 </div>
                 </form>               
@@ -70,7 +72,6 @@
       </div>
     </section>   
   </div>
-  <?php include 'includes/footer.php'; ?>
   <?php include 'includes/scripts.php'; ?>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-  <?php include 'includes/navbar.php'; ?>
+  <?php include 'includes/navegadorAdministrador.php'; ?>
   <?php include 'includes/menuAdministrador.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -19,9 +19,8 @@
         Nómina / Liquidar Nomina
       </h1>
       <ol class="breadcrumb">
-        <li><a href="submenuNomina.php"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li>Nomina</li>
-        <li class="active">Liquidar Nomina</li>
+        <li><a href="vistaAdministrador.php"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="submenuNomina.php"><i class="fa fa-dashboard"></i> Nomina</a></li>
       </ol>
     </section>
     <!-- Main content -->
@@ -36,10 +35,10 @@
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right col-sm-8" id="reservation" name="date_range" value="<?php echo (isset($_GET['range'])) ? $_GET['range'] : $range_from.' - '.$range_to; ?>">
+                    <input type="text" class="form-control pull-right col-sm-8" id="rango_fecha" name="date_range" value="<?php echo (isset($_GET['range'])) ? $_GET['range'] : $range_from.' - '.$range_to; ?>">
                   </div>
 
-                  <button type="button" class="btn btn-success btn-sm btn-flat" id="payroll"><span class="glyphicon glyphicon-print"></span> Liquidar empleados</button>
+                  <button type="button" class="btn btn-success btn-sm btn-flat" id="reporte"><span class="glyphicon glyphicon-print"></span> Liquidar empleados</button>
                 </form>
               </div>
             </div>
@@ -105,49 +104,21 @@
       </div>
     </section>   
   </div>
-    
-  <?php include 'includes/footer.php'; ?>
-
 </div>
 <?php include 'includes/scripts.php'; ?> 
 <script>
 $(function(){
-  $("#reservation").on('change', function(){
+  $("#rango_fecha").on('change', function(){
     var range = encodeURI($(this).val());
-    window.location = 'liquidacion_nomina.php?range='+range;
+    window.location = 'liquidacion_nomina.php?range='+range; 
   });
 
-  $('#payroll').click(function(e){
+  $('#reporte').click(function(e){
     e.preventDefault();
     $('#payForm').attr('action', 'payroll_generate.php');
     $('#payForm').submit();
   });
-
-  $('#payslip').click(function(e){
-    e.preventDefault();
-    $('#payForm').attr('action', 'payslip_generate.php');
-    $('#payForm').submit();
-  });
-
 });
-
-function getRow(id){
-  $.ajax({
-    type: 'POST',
-    url: 'position_row.php',
-    data: {id:id},
-    dataType: 'json',
-    success: function(response){
-      $('#posid').val(response.id);
-      $('#edit_title').val(response.description);
-      $('#edit_rate').val(response.rate);
-      $('#del_posid').val(response.id);
-      $('#del_position').html(response.description);
-    }
-  });
-}
-
-
 </script>
 </body>
 </html>

@@ -7,6 +7,6 @@
 		$query = $conn->query($sql);
 		$row = $query->fetch_assoc();
 
-		echo json_encode($row);
+		echo json_encode($row); 
 	}
 ?>

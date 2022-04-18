@@ -4,7 +4,7 @@ include '../timezone.php';
 $today = date('Y-m-d');
 $year = date('Y');
 if (isset($_GET['year'])) {
-  $year = $_GET['year'];
+  $year = $_GET['year'];  
 }
 ?>
 <?php include 'includes/header.php'; ?>
@@ -60,6 +60,7 @@ if (isset($_GET['year'])) {
 
     <?php include 'includes/navegadorOperador.php'; ?>
     <?php include 'includes/menubarOperador.php'; ?>
+ 
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -72,45 +73,16 @@ if (isset($_GET['year'])) {
 
           <div class="row">
             <div class="col-xs-12">
-
-
-
-              <div class="bienvenida"">
-                     
-                      <h1>Bienvenidos a NominApp</h1>  
-            
-
-
+              <div class="bienvenida">
+                <h1>Bienvenidos a NominApp</h1>  
                   <p>
-
-                  
-Sistema de Control de Nómina, ventas e inventarios
-
-                  </p>
-                    
-                        </div>
-           
-
-        
-                
-
-                </div>
-                
-              </div>
-
-   
-              
-        
-
-    </div>
-
-    
-    <?php include 'includes/footer.php'; ?>
-
+                    Sistema de Control de Nómina, ventas e inventarios
+                  </p>                    
+              </div>           
+            </div>                
+          </div>
+     </div>    
   </div>
-  <!-- ./wrapper -->
-
-  <!-- Chart Data -->
   <?php
   $and = 'AND YEAR(date) = ' . $year;
   $months = array();

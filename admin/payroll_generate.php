@@ -18,7 +18,7 @@
 	      	$cashadvance = $carow['cashamount'];
 
 			$gross = $row['rate'] * $row['total_hr'];
-			$total_deduction = $deduction + $cashadvance;
+			$total_deduction = $deduction + $cashadvance; 
       		$net = $gross - $total_deduction;
 
 			$total += $net;

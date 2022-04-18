@@ -1,9 +1,3 @@
-<?php
-  include '../timezone.php';
-  $range_to = date('m/d/Y');
-  $range_from = date('m/d/Y', strtotime('-30 day', strtotime($range_to)));
-?>
- 
 <!-- Add -->
 <div class="modal fade" id="addnew">
     <div class="modal-dialog">
@@ -122,7 +116,7 @@
             	<form class="form-horizontal" method="POST" action="employee_delete.php">
             		<input type="hidden" class="empid" name="id">
             		<div class="text-center">
-	                	<p>ELIMINAR EMPLEADO</p>
+	                	<p>ELIMINAR PRODUCTO</p>
 	                	<h2 class="bold del_employee_name"></h2>
 	            	</div>
           	</div>
