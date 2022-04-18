@@ -4,7 +4,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
 
-    <?php include 'includes/navbarOperador.php'; ?>
+    <?php include 'includes/navegadorOperador.php'; ?>
     <?php include 'includes/menubarOperador.php'; ?>
 
     <!-- Content Wrapper. Contains page content -->
@@ -19,7 +19,7 @@
 
           <li><a href="subMenuNominaOperador.php"><i class="fa fa-clock-o"></i> horas</a></li>
           
-          <li><a href="overtimeOperador.php"><i class="fa fa-pencil"></i> ingreso de horas</a></li>
+          <li><a href="horasOperador.php"><i class="fa fa-pencil"></i> ingreso de horas</a></li>
 
 
 

@@ -4,7 +4,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
 
-  <?php include 'includes/navbarOperador.php'; ?>
+  <?php include 'includes/navegadorOperador.php'; ?>
   <?php include 'includes/menubarOperador.php'; ?>
 
     <!-- Content Wrapper. Contains page content -->
@@ -38,7 +38,7 @@
                       <div class="icon">
                         <i class="ion ion-clock"></i>
                       </div>
-                      <a href="overtimeOperador.php" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
+                      <a href="horasOperador.php" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                   </div>
                   <!-- ./col -->
@@ -51,7 +51,7 @@
                       <div class="icon">
                         <i class="ion ion-clipboard"></i>
                       </div>
-                      <a href="payrollOperador.php" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
+                      <a href="nominaOperador.php" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                   </div>
                   <div id="legend" class="text-center"></div>

@@ -17,41 +17,40 @@ if (isset($_GET['year'])) {
   <title>Operador</title>
 
   <style>
+    .content-wrapper {
 
-.content-wrapper{
+      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("../images/john-schnobrich-yFbyvpEGHFQ-unsplash.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
 
-background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-url("../images/john-schnobrich-yFbyvpEGHFQ-unsplash.jpg") ;
-background-repeat: no-repeat;
-background-position: center;
-background-size: cover;
-
-}
-
+    }
 
 
-  .bienvenida{
-    padding-top: 200px;
-   padding-left: 440px;
-  
-    position: absolute;
 
-    font-family: 'Akshar', sans-serif;
-    color: white;
+    .bienvenida {
+      padding-top: 200px;
+      padding-left: 240px;
 
-  }
+      position: absolute;
 
-  .bienvenida h1{
-    font-size: 9rem;
-  }
+      font-family: 'Akshar', sans-serif;
+      color: white;
 
-  .bienvenida p {
-padding-left: 50px;
-    position: absolute;
-    
-  }
+    }
 
+    .bienvenida h1 {
+      font-size: 9rem;
+      text-align: center;
+    }
 
+    .bienvenida p {
+      padding-left: 254px;
+      position: absolute;
+      font-size: 2rem;
+
+    }
   </style>
 
 </head>
@@ -59,7 +58,7 @@ padding-left: 50px;
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
 
-    <?php include 'includes/navbarOperador.php'; ?>
+    <?php include 'includes/navegadorOperador.php'; ?>
     <?php include 'includes/menubarOperador.php'; ?>
 
     <!-- Content Wrapper. Contains page content -->
@@ -73,17 +72,20 @@ padding-left: 50px;
 
           <div class="row">
             <div class="col-xs-12">
-         
-          
 
-                <div class="bienvenida"">
+
+
+              <div class="bienvenida"">
                      
-                      <h1>Bienvenido</h1>  
+                      <h1>Bienvenidos a NominApp</h1>  
             
+
+
                   <p>
 
                   
 Sistema de Control de Nómina, ventas e inventarios
+
                   </p>
                     
                         </div>

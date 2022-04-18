@@ -1,22 +1,45 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/header.php'; ?>
 
+
+
+
+<html>
+
 <head>
 
   <style>
     .content-header h1 {
 
       text-align: center;
- 
+
     }
   </style>
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Tabla dinamica</title>
+	<link rel="stylesheet" type="text/css" href="../librerias/bootstrap/css/bootstrap.css>
+ 
+
+	<link rel="stylesheet" type="text/css" href="../librerias/alertifyjs/css/alertify.css">
+	<link rel="stylesheet" type="text/css" href="../librerias/alertifyjs/css/themes/default.css">
+  <link rel="stylesheet" type="text/css" href="../librerias/select2/css/select2.css">
+
+	<script src="../librerias/jquery-3.2.1.min.js"></script>
+  <script src="../js/funciones.js"></script>
+	<script src="../librerias/bootstrap/js/bootstrap.js"></script>
+	<script src="../librerias/alertifyjs/alertify.js"></script>
+  <script src="../librerias/select2/js/select2.js"></script>
+
 
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
 
-    <?php include 'includes/navbarOperador.php'; ?>
+    <?php include 'includes/navegadorOperador.php'; ?>
     <?php include 'includes/menubarOperador.php'; ?>
 
     <!-- Content Wrapper. Contains page content -->
@@ -33,235 +56,114 @@
       </section>
 
       <!-- Main content -->
-      <section class="content">
+      <section class="container">
 
 
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="box">
-              <div class="box-body">
-                <div class="chart" style="margin-left: 300px;padding-top: 100px; ">
-                  <br>
+      <div id="buscador"></div>
+		<div id="tabla"></div>
+	</div>
 
-<div >
+	<!-- Modal para registros nuevos -->
 
 
-                  <form>
-                    <div style="padding-left: 50px;">
-                      <label for="fname">Cantidad </label>
-
-                    </div>
-
-                    <div>
-                      <label for="fname">1 </label>
-
-                      <input type="text" id="fname" name="fname" value="">
-                    </div>
-
-
-                    <div>
-                      <label for="fname">2 </label>
-
-                      <input type="text" id="fname" name="fname" value="">
-                    </div>
-
-                    <div>
-                      <label for="fname">3 </label>
-
-                      <input type="text" id="fname" name="fname" value="">
-                    </div>
-
-
-                    <div>
-                      <label for="fname">4 </label>
-
-                      <input type="text" id="fname" name="fname" value="">
-                    </div>
-
-                    <div>
-                      <label for="fname">5 </label>
-
-                      <input type="text" id="fname" name="fname" value="">
-                    </div>
-
-
-
-                  </form>
-
+<div class="modal fade" id="modalNuevo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Agrega nueva persona</h4>
+      </div>
+      <div class="modal-body">
+        	<label>Nombre</label>
+        	<input type="text" name="" id="nombre" class="form-control input-sm">
+        	<label>Apellido</label>
+        	<input type="text" name="" id="apellido" class="form-control input-sm">
+        	<label>Email</label>
+        	<input type="text" name="" id="email" class="form-control input-sm">
+        	<label>telefono</label>
+        	<input type="text" name="" id="telefono" class="form-control input-sm">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="guardarnuevo">
+        Agregar
+        </button>
+       
+      </div>
+    </div>
+  </div>
 </div>
 
-<div style="position: absolute;    padding-left: 180px;
-">
-
-                  <form >
-                    <div style="padding-left: 50px;">
-                      <label for="fname">Producto </label>
-
-                    </div>
-
-                    <div>
-                      <label for="fname"> </label>
-
-                      <input type="text" id="fname" name="fname" value="">
-                    </div>
-
-
-                    <div>
-                      <label for="fname"> </label>
-
-                      <input type="text" id="fname" name="fname" value="">
-                    </div>
-
-                    <div>
-                      <label for="fname"> </label>
-
-                      <input type="text" id="fname" name="fname" value="">
-                    </div>
-
-
-                    <div>
-                      <label for="fname"> </label>
-
-                      <input type="text" id="fname" name="fname" value="">
-                    </div>
-
-                    <div>
-                      <label for="fname"> </label>
-
-                      <input type="text" id="fname" name="fname" value="">
-                    </div>
-
-
-
-                  </form>
-
-
-                  </div>
-
-
-                  <div style="position: absolute;    padding-left: 350px;
-">
-
-                  <form >
-                    <div style="padding-left: 40px;">
-                      <label for="fname">valor unitario </label>
-
-                    </div>
-
-                    <div>
-                      <label for="fname"></label>
-
-                      <input type="text" id="fname" name="fname" value="">
-                    </div>
-
-
-                    <div>
-                      <label for="fname"> </label>
-
-                      <input type="text" id="fname" name="fname" value="">
-                    </div>
-
-                    <div>
-                      <label for="fname"></label>
-
-                      <input type="text" id="fname" name="fname" value="">
-                    </div>
-
-
-                    <div>
-                      <label for="fname"> </label>
-
-                      <input type="text" id="fname" name="fname" value="">
-                    </div>
-
-                    <div>
-                      <label for="fname"> </label>
-
-                      <input type="text" id="fname" name="fname" value="">
-                    </div>
-
-
-
-                  </form>
-
-
-                  </div>
-
-
-                  <div style="position: absolute;    padding-left: 550px;
-">
-
-                  <form >
-                    <div style="padding-left: 40px;">
-                      <label for="fname">valor total </label>
-
-                    </div>
-
-                    <div>
-                      <label for="fname"></label>
-
-                      <input type="text" id="fname" name="fname" value="">
-                    </div>
-
-
-                    <div>
-                      <label for="fname"> </label>
-
-                      <input type="text" id="fname" name="fname" value="">
-                    </div>
-
-                    <div>
-                      <label for="fname"></label>
-
-                      <input type="text" id="fname" name="fname" value="">
-                    </div>
-
-
-                    <div>
-                      <label for="fname"> </label>
-
-                      <input type="text" id="fname" name="fname" value="">
-                    </div>
-
-                    <div>
-                      <label for="fname"> </label>
-
-                      <input type="text" id="fname" name="fname" value="">
-                    </div>
-
-
-
-                  </form>
-
-
-                  </div>
-
-
-
-
-                  <!-- ./col -->
-
-                  <div id="legend" class="text-center"></div>
-                  <canvas id="barChart" style="height:350px"></canvas>
-                </div>
-              </div>
-              <div class="row">
-                <br>
-
-
-              </div>
-            </div>
-          </div>
-
-
-
-
-      </section>
-
-
+<!-- Modal para edicion de datos -->
+
+<div class="modal fade" id="modalEdicion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Actualizar datos</h4>
+      </div>
+      <div class="modal-body">
+      		<input type="text" hidden="" id="idpersona" name="">
+        	<label>Nombre</label>
+        	<input type="text" name="" id="nombreu" class="form-control input-sm">
+        	<label>Apellido</label>
+        	<input type="text" name="" id="apellidou" class="form-control input-sm">
+        	<label>Email</label>
+        	<input type="text" name="" id="emailu" class="form-control input-sm">
+        	<label>telefono</label>
+        	<input type="text" name="" id="telefonou" class="form-control input-sm">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" id="actualizadatos" data-dismiss="modal">Actualizar</button>
+        
+      </div>
     </div>
+  </div>
+</div>
 
 
-    <?php include 'includes/footer.php'; ?>
+
+          </section>
+
+
+
+
+
+          
+
+        </div>
+
+
+
 
 </body>
+
+</html>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#tabla').load('componentes/tabla.php');
+    $('#buscador').load('componentes/buscador.php');
+	});
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#guardarnuevo').click(function(){
+          nombre=$('#nombre').val();
+          apellido=$('#apellido').val();
+          email=$('#email').val();
+          telefono=$('#telefono').val();
+            agregardatos(nombre,apellido,email,telefono);
+        });
+
+
+
+        $('#actualizadatos').click(function(){
+          actualizaDatos();
+        });
+
+    });
+</script>
+
+<?php include 'includes/footer.php'; ?>

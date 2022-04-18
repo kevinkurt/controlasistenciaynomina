@@ -9,7 +9,7 @@ $range_from = date('m/d/Y', strtotime('-30 day', strtotime($range_to)));
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
 
-        <?php include 'includes/navbarOperador.php'; ?>
+        <?php include 'includes/navegadorOperador.php'; ?>
         <?php include 'includes/menubarOperador.php'; ?>
 
         <!-- Content Wrapper. Contains page content -->
