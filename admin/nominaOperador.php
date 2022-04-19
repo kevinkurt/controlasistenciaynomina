@@ -29,28 +29,6 @@ $range_from = date('m/d/Y', strtotime('-30 day', strtotime($range_to)));
         </ol>
       </section>
             <section class="content">
-        <?php
-        if (isset($_SESSION['error'])) {
-          echo "
-            <div class='alert alert-danger alert-dismissible'>
-              <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-              <h4><i class='icon fa fa-warning'></i> Error!</h4>
-              " . $_SESSION['error'] . "
-            </div>
-          ";
-          unset($_SESSION['error']);
-        }
-        if (isset($_SESSION['success'])) {
-          echo "
-            <div class='alert alert-success alert-dismissible'>
-              <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-              <h4><i class='icon fa fa-check'></i> Éxito!</h4>
-              " . $_SESSION['success'] . "
-            </div>
-          ";
-          unset($_SESSION['success']);
-        }
-        ?>
         <div class="row">
           <div class="col-xs-12">
             <div class="box">
@@ -99,10 +77,7 @@ $range_from = date('m/d/Y', strtotime('-30 day', strtotime($range_to)));
         </div>
       </section>
     </div>
-
-    
-    <?php include 'includes/footer.php'; ?>
-    <?php include 'includes/overtime_modal.php'; ?>
+    <?php include 'includes/horas_extras_modal.php'; ?>
   </div>
   <?php include 'includes/scripts.php'; ?>
   <script>
@@ -125,7 +100,7 @@ $range_from = date('m/d/Y', strtotime('-30 day', strtotime($range_to)));
     function getRow(id) {
       $.ajax({
         type: 'POST',
-        url: 'overtime_row.php',
+        url: 'horas_extras_fila.php',
         data: {
           id: id
         },

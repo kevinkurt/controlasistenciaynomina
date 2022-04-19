@@ -10,7 +10,7 @@
 		$query = $conn->query($sql);
 
 		if($query->num_rows < 1){
-			$_SESSION['error'] = 'Cannot find account with the usuario';
+			$_SESSION['error'] = 'cuenta de usuario no existente';
 		}
 		else{
 			$row = $query->fetch_assoc();
@@ -18,13 +18,13 @@
 				$_SESSION['Cliente_Admin1'] = $row['id'];
 			}
 			else{
-				$_SESSION['error'] = 'Incorrect password';
+				$_SESSION['error'] = 'contraseña incorrecta';
 			}
 		}
 		
 	}
 	else{
-		$_SESSION['error'] = 'Input admin credentials first';
+		$_SESSION['error'] = 'credenciales erroneas';
 	}
 
 	header('location: index.php');
