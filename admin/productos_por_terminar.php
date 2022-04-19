@@ -24,8 +24,8 @@
               <div class="box-tools pull-right">                
                 <form class="form-inline">
                   <div class="form-group">
-                  <button type="submit" class="btn btn-primary btn-flat" name="add"><i class="glyphicon glyphicon-print"></i> Descarga informe de productos </button>  
-                  </div>
+                  <a href="reporte_productos_por_terminar.php" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Descarga informe de productos</a>  
+                </div>
                 </form>
               </div>             
             </div>

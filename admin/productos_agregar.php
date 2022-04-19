@@ -18,7 +18,7 @@
 
 	}
 	else{
-		$_SESSION['error'] = 'Fill up add form first';
+		$_SESSION['error'] = 'no se pudo ingresar correctamente el empleado';
 	}
 
 	header('location: productos_edicion.php');
