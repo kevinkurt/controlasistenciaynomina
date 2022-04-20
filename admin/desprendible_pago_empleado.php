@@ -1,40 +1,32 @@
-<?php include 'includes/session.php'; ?>
 <?php
-include '../timezone.php';
-$range_to = date('m/d/Y');
-$range_from = date('m/d/Y', strtotime('-30 day', strtotime($range_to)));
+
+ob_start();
 ?>
-<?php include 'includes/header.php'; ?>
 
-<body class="hold-transition skin-blue sidebar-mini">
-    <div class="wrapper">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  	<meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<title>documento</title>
+  	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<?php
+  session_start(); 
+  include 'includes/conn.php';
+  $sql = "SELECT * FROM productos ";
+  $query = $conn->query($sql);
+  
+?>
+ <center>Desprendible pago</center>
+ <br>
 
-        <?php include 'includes/navegadorOperador.php'; ?>
-        <?php include 'includes/menubarOperador.php'; ?>
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-
-            <section class="content-header">
-        <h1>
-          Desprendible de nomina
-        </h1>
-        <ol class="breadcrumb">
-          <li><a href="vistaoperario.php"><i class="fa fa-user"></i> Inicio</a></li>
-          <li><a href="subMenuNominaOperador.php"><i class="fa fa-book"></i> Nomina</a></li>
-
-          <li><a href="desprendible_pago_empleado.php"><i class="fa fa-download"></i> Desprendible de nomina</a></li>
-
-        </ol>
-      </section>
-            <section class="content">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="box">
-            
-              <div class="box-body">
-                <table id="example1" class="table table-bordered">
+</br>
+<h3>Ferreteria rivera 2010</h3>
+<table id="example1" class="table table-bordered">
                   <thead>
                     <th class="hidden"></th>
                     <th>fecha</th>
@@ -91,67 +83,26 @@ $range_from = date('m/d/Y', strtotime('-30 day', strtotime($range_to)));
                           <td><?php echo $row['horas_extras'] ?></td>
                           <td><?php echo $row['sueldo_total'] ?></td>
                     
-                          <td>
-                            
-                          </td>
                         </tr>
                         <?php
                     }
                     ?>
                   </tbody>
                 </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-    <?php include 'includes/horas_extras_modal.php'; ?>
-  </div>
-  <?php include 'includes/scripts.php'; ?>
-  <script>
-    $(function() {
-      $('.edit').click(function(e) {
-        e.preventDefault();
-        $('#edit').modal('show');
-        var id = $(this).data('id');
-        getRow(id);
-      });
-
-      $('.delete').click(function(e) {
-        e.preventDefault();
-        $('#delete').modal('show');
-        var id = $(this).data('id');
-        getRow(id);
-      });
-    });
-
-    function getRow(id) {
-      $.ajax({
-        type: 'POST',
-        url: 'horas_extras_fila.php',
-        data: {
-          id: id
-        },
-        dataType: 'json',
-        success: function(response) {
-          var time = response.hours;
-          var split = time.split('.');
-          var hour = split[0];
-          var min = '.' + split[1];
-          min = min * 60;
-          console.log(min);
-          $('.employee_name').html(response.firstname + ' ' + response.lastname);
-          $('.otid').val(response.otid);
-          $('#datepicker_edit').val(response.date_overtime);
-          $('#overtime_date').html(response.date_overtime);
-          $('#hours_edit').val(hour);
-          $('#mins_edit').val(min);
-          $('#rate_edit').val(response.rate);
-        }
-      });
-    }
-  </script>
 </body>
-
 </html>
+<?php
+
+$html=ob_get_clean();
+//echo $html;
+
+require_once '../librerias/dompdf/autoload.inc.php';
+use Dompdf\Dompdf;
+$dompdf = new Dompdf();
+$dompdf->loadHtml($html);
+//$dompdf->setPaper('letter');
+$dompdf->setPaper('A4', 'landscape');
+$dompdf->render();
+$dompdf->stream("desprendible pago.pdf", array("Attachment"=> true));
+
+?>
