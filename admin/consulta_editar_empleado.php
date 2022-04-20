@@ -2,7 +2,7 @@
 	include 'includes/session.php';
 
 	if(isset($_POST['edit'])){
-		$empid = $_GET['data_id'];
+		$empid = $_GET['empid'];
 		$firstname = $_POST['nombres'];
 		$lastname = $_POST['apellidos'];
 		$address = $_POST['direccion'];
