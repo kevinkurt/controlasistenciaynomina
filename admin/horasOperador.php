@@ -21,8 +21,6 @@
           
           <li><a href="horasOperador.php"><i class="fa fa-pencil"></i> ingreso de horas</a></li>
 
-
-
         </ol>
       </section>
       <!-- Main content -->
@@ -106,7 +104,7 @@
       </section>
     </div>
 
-    <?php include 'includes/footer.php'; ?>
+
     <?php include 'includes/overtime_modal.php'; ?>
   </div>
   <?php include 'includes/scripts.php'; ?>

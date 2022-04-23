@@ -25,7 +25,7 @@
                 <div class="col-md-3 col-sm-6 col-xs-12">
           <!-- opciones submenu -->
           <div class="small-box bg-red">
-            <div class="inner">
+            <div class="inner" style="padding-bottom: 22px;">
               <p>Inventario por terminar</p>
             </div>
             <div class="icon">
@@ -37,7 +37,7 @@
         <div class="col-md-3 col-sm-6 col-xs-12">
           <!-- opciones submenu -->
           <div class="small-box bg-green">
-            <div class="inner">         
+            <div class="inner" style="padding-bottom: 22px;">         
               <p>Inventario productos</p>
             </div>
             <div class="icon">
@@ -49,7 +49,7 @@
         <div class="col-md-3 col-sm-6 col-xs-12">
           <!-- opciones submenu -->
         <div class="small-box bg-yellow">
-            <div class="inner">
+            <div class="inner" style="padding-bottom: 22px;">
               <p>Modificacion productos</p>
             </div>
             <div class="icon">

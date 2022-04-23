@@ -27,8 +27,8 @@
                 <br>
                 <div class="col-lg-3 col-xs-6"> 
           <!-- small box -->
-          <div class="small-box bg-aqua">
-            <div class="inner">
+          <div class="small-box bg-aqua" >
+            <div class="inner" style="padding-bottom: 20px;">
               <p>Modificacion Nomina</p>
             </div>
             <div class="icon">
@@ -36,12 +36,14 @@
             </div>
             <a href="employee.php" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
           </div>
+
+
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-purple"> 
-            <div class="inner">         
+            <div class="inner" style="padding-bottom: 20px;">         
               <p>Liquidar Nomina</p>
             </div>
             <div class="icon">
