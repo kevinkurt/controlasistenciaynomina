@@ -83,30 +83,6 @@ if (isset($_GET['year'])) {
           </div>
      </div>    
   </div>
-  <?php
-  $and = 'AND YEAR(date) = ' . $year;
-  $months = array();
-  $ontime = array();
-  $late = array();
-  for ($m = 1; $m <= 12; $m++) {
-    $sql = "SELECT * FROM attendance WHERE MONTH(date) = '$m' AND status = 1 $and";
-    $oquery = $conn->query($sql);
-    array_push($ontime, $oquery->num_rows);
-
-    $sql = "SELECT * FROM attendance WHERE MONTH(date) = '$m' AND status = 0 $and";
-    $lquery = $conn->query($sql);
-    array_push($late, $lquery->num_rows);
-
-    $num = str_pad($m, 2, 0, STR_PAD_LEFT);
-    $month =  date('M', mktime(0, 0, 0, $m, 1));
-    array_push($months, $month);
-  }
-
-  $months = json_encode($months);
-  $late = json_encode($late);
-  $ontime = json_encode($ontime);
-
-  ?>
   <!-- End Chart Data -->
   <?php include 'includes/scripts.php'; ?>
 

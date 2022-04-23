@@ -5,52 +5,27 @@ if (isset($_SESSION['Cliente_Admin1'])) {
 }
 ?>
 <?php include 'includes/header.php'; ?>
-
 <head>
-
 	<style>
 		.login-page {
-
-
 			background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 				url("../images/descarga.jpg");
 			background-repeat: repeat;
 			background-position: center;
-			background-size: cover;
-
-			
-
-
+			background-size: cover;		
 		}
-
-		.body img{
-
-				
-
-		
+		.body img{						
 		}
-
-		.login-box {
-
-			
+		.login-box {			
 			font-family: 'Akshar', sans-serif;
     color: white;
-
-
-		}
-		
+		}		
 	</style>
-
 </head>
-
 
 <body class="hold-transition login-page">
 	<div class="row">
-
-
 	<div class="login-box" >
-
-
 		<div class="login-logo">
 			<b>Ingreso Operario</b>
 		</div>
@@ -69,26 +44,11 @@ if (isset($_SESSION['Cliente_Admin1'])) {
 					<div class="col-xs-4; padding-left: 100px">
 						<button type="submit" class="btn btn-primary btn-block btn-flat" name="login"><i class="fa fa-sign-in"></i> Ingresar</button>
 					</div>
-
-
 				</div>
 			</form>
-
-		
-
-
-		</div>
-
-		
-
-
+		</div>		
 		<div style="padding-top: 100px;padding-left: 90px ">
 			<a href="indexAdm.php" class="btn btn-primary btn-sm btn-flat" style="padding-left: 50px;padding-right: 50px;"><i class="fa fa-sign-in"></i> <span>Administrador</span></a>
-
-
-
-
-
 			<?php
 			if (isset($_SESSION['error'])) {
 				echo "
@@ -99,14 +59,8 @@ if (isset($_SESSION['Cliente_Admin1'])) {
 				unset($_SESSION['error']);
 			}
 			?>
-		</div>
-
-
-		
-		</div>			
-			
-			
-
+		</div>		
+		</div>									
 		<?php include 'includes/scripts.php' ?>
 </body>
 

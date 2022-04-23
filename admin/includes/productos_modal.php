@@ -113,7 +113,7 @@
             	<h4 class="modal-title"><b><span class="id_empleado"></span></b></h4>
           	</div>
           	<div class="modal-body">
-            	<form class="form-horizontal" method="POST" action="employee_delete.php">
+            	<form class="form-horizontal" method="POST" action="productos_eliminar.php">
             		<input type="hidden" class="empid" name="id">
             		<div class="text-center">
 	                	<p>ELIMINAR PRODUCTO</p>
@@ -123,53 +123,6 @@
           	<div class="modal-footer">
             	<button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
             	<button type="submit" class="btn btn-danger btn-flat" name="delete"><i class="fa fa-trash"></i> Eliminar</button>
-            	</form>
-          	</div>
-        </div>
-    </div>
-</div>
-<!-- liquidar empleado -->
-<div class="modal fade" id="addnew1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-          	<div class="modal-header">
-            	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              		<span aria-hidden="true">&times;</span></button>
-            	<h4 class="modal-title"><b>Liquidar Empleado</b></h4>
-          	</div>
-          	<div class="modal-body">
-            	<form class="form-horizontal" method="POST" action="employee_add.php" enctype="multipart/form-data">
-              <div class="form-group">
-                    <label for="gender" class="col-sm-3 control-label">Tipo documento</label>
-                    <div class="col-sm-9"> 
-                      <select class="form-control" id="tipo_doc" name="tipo_doc" required>
-                        <option value="" selected>- Seleccionar -</option>
-                        <option value="cedula ciudadania">CC</option>
-                        <option value="cedula extranjeria">CE</option>
-                      </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                     <label for="firstname" class="col-sm-3 control-label">numero de documento</label>
-                     <div class="col-sm-9">
-                         <input type="text" class="form-control" id="employee_id" name="id_empleado" required>
-                     </div>
-                </div>  
-                <div class="form-group">
-                     <label for="firstname" class="col-sm-3 control-label">rango de fechas a liquidar</label>
-                     <div class="col-sm-9">  
-                     <div class="input-group">  
-                     <div class="input-group-addon">
-                      <i class="fa fa-calendar"></i>
-                     </div>
-                    <input type="text" class="form-control pull-right col-sm-8" id="reservation" name="date_range" value="<?php echo (isset($_GET['range'])) ? $_GET['range'] : $range_from.' - '.$range_to; ?>">
-                  </div>
-                  </div>
-                </div>
-              
-          	<div class="modal-footer">
-            	<button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
-            	<button type="submit" class="btn btn-primary btn-flat" name="add"><i class="glyphicon glyphicon-print"></i> Desprendible de pago </button>
             	</form>
           	</div>
         </div>

@@ -21,5 +21,5 @@
 		$_SESSION['error'] = 'Seleccionar empleado para editar primero';
 	}
 
-	header('location: employee.php');
+	header('location: empleado.php');
 ?>
