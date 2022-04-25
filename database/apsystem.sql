@@ -37,7 +37,7 @@ INSERT INTO `administrador` (`id`, `id_empleado`, `usuario`, `password`,`tipo`, 
 (1, 11,'Cliente_Admin1', '$2y$10$ixCXndUoG43O4S7EYnMzzOpWRkpiDBuHzGgMcotMeaXazgKQSBVcO', 'Cliente', sysdate()),
 (2, 33,'Operario1', '$2y$10$SjJRldn6l6izGU/l74JH5Ojqc6e9MUpBBAYli3K9mK.nJJ7eGl9fu', 'Cliente', sysdate()),
 (3, 55, 'Operario2', '$2y$10$iP9kOafweUyq0nPFzssvvOK/sn0K0pkKmD0K995c764Lx/p3uFog.', 'Cliente', sysdate());
--
+
 --tipo de cargos 
 CREATE TABLE `cargos` (
   `id_cargo` int(11) NOT NULL,
